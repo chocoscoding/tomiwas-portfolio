@@ -1,0 +1,123 @@
+.pre-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bgLighter);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  z-index: 100000;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background-color: var(--text);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.main .middleLine {
+  width: 100%;
+  height: 40%;
+  max-height: 400px;
+  background: var(--text);
+  /* display: none; */
+}
+.main .miniLogo {
+  font-family: "ImpostureGrotesk";
+  font-weight: 700;
+  font-size: 13rem;
+  color: var(--text);
+  /* top: -211%; */
+  scale: 80;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-14%, -9%);
+}
+.main .middleLine h3 {
+  font-family: "ImpostureGrotesk";
+  font-weight: 800;
+  font-size: 14rem;
+  color: black;
+  will-change: transform;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.home-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  max-width: 1600px;
+  margin: auto;
+}
+
+.hero-title .line {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+  position: relative;
+}
+
+.hero-title h1 {
+  font-family: "ImpostureGrotesk";
+  font-weight: 800;
+  font-size: 14rem;
+  position: relative;
+  transform: translateY(240px);
+  will-change: transform;
+  line-height: 120%;
+  z-index: 2;
+}
+.hero-title h2 {
+  transform: translateY(290px);
+  will-change: transform;
+}
+.h1_1 {
+  text-align: left;
+  margin-left: 5%;
+}
+.h1_2 {
+  text-align: right;
+  margin-right: 5%;
+}
+
+@media (max-width: 900px) {
+  .hero-title {
+    width: 90%;
+  }
+}
