@@ -1,5 +1,5 @@
 {
-  "name": "tomiwas-portfolio",
+  "name": "tomiwasportfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,8 @@
     "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18",
-    "tomiwas portfolio": "file:"
+    "tomiwas-portfolio": "file:",
+    "tomiwasportfolio": "file:"
   },
   "devDependencies": {
     "eslint": "^8",

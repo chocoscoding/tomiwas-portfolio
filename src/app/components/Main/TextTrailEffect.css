@@ -1,0 +1,15 @@
+.trail {
+  position: relative;
+  pointer-events: none;
+}
+
+.trail-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform, opacity;
+  white-space: nowrap;
+  font-size: 2rem; /* Adjust as needed */
+  font-weight: bold; /* Optional */
+  color: #000; /* Text color */
+}
