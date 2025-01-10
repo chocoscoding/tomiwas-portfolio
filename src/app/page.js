@@ -46,7 +46,6 @@ export default function Home() {
         stagger: 0.1,
         delay: showPreloader ? 6 : 1,
         duration: 1.5,
-        ease: "power4.out",
       });
     },
     { scope: containerRef, dependencies: [showPreloader] }
@@ -62,32 +61,43 @@ export default function Home() {
       tl.to(h3Elements[0], {
         opacity: 1,
         duration: 0.55,
-        ease: "power4.out",
-        onComplete: () => {
-          h3Elements[0].style.display = "none";
-        },
       });
+      tl.to(h3Elements[0], {
+        opacity: 0,
+        duration: 0.25,
+      });
+      tl.to(
+        h3Elements[1],
+        {
+          opacity: 1,
+          duration: 0.55,
+        },
+        "<0.2"
+      );
       tl.to(h3Elements[1], {
-        opacity: 1,
-        duration: 0.55,
-        ease: "power4.out",
-        onComplete: () => {
-          h3Elements[1].style.display = "none";
-        },
+        opacity: 0,
+        duration: 0.25,
       });
+      tl.to(
+        h3Elements[2],
+        {
+          opacity: 1,
+          duration: 0.55,
+        },
+        "<0.2"
+      );
       tl.to(h3Elements[2], {
-        opacity: 1,
-        duration: 0.55,
-        ease: "power4.out",
-        onComplete: () => {
-          h3Elements[2].style.display = "none";
+        opacity: 0,
+        duration: 0.25,
+      });
+      tl.to(
+        h3Elements[3],
+        {
+          opacity: 1,
+          duration: 0.55,
         },
-      });
-      tl.to(h3Elements[3], {
-        opacity: 1,
-        duration: 0.55,
-        ease: "power4.out",
-      });
+        "<0.2"
+      );
       tl.to([h3Elements[3], ".middleLine"], {
         delay: 0.5,
         opacity: 0,
