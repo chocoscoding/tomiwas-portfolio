@@ -20,10 +20,7 @@ const AboutPage = () => {
 
   useEffect(() => {
     gsap.registerPlugin(CustomEase, ScrollTrigger);
-    CustomEase.create(
-      "hop2",
-      "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1"
-    );
+    CustomEase.create("hop2", "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1");
 
     const applySplitType = (element) => {
       const splitTexts = element.querySelectorAll("h1, h2, h3");
@@ -62,10 +59,8 @@ const AboutPage = () => {
     }
 
     if (cvWrapperRef.current) {
-      const cvHeaderSpans =
-        cvHeaderRef.current.querySelectorAll(".line-wrapper span");
-      const cvListSpans =
-        cvListRef.current.querySelectorAll(".line-wrapper span");
+      const cvHeaderSpans = cvHeaderRef.current.querySelectorAll(".line-wrapper span");
+      const cvListSpans = cvListRef.current.querySelectorAll(".line-wrapper span");
 
       gsap.set([cvHeaderSpans, cvListSpans], { y: "100%" });
 
@@ -160,26 +155,22 @@ const AboutPage = () => {
 
               <div className="about-copy" ref={aboutCopyRef}>
                 <h3>
-                  Passionate about crafting immersive digital experiences,
-                  Stefan Markovic blends design and code to push the boundaries
-                  of what’s possible on the web. His approach focuses on
-                  creating seamless, responsive, and engaging interfaces that
-                  leave a lasting impact.
+                  Passionate about crafting immersive digital experiences, Stefan Markovic blends design and code to push the boundaries of
+                  what’s possible on the web. His approach focuses on creating seamless, responsive, and engaging interfaces that leave a
+                  lasting impact.
                 </h3>
                 <br />
                 <h3>
-                  With a strong foundation in JavaScript, React, and modern web
+                  {`With a strong foundation in JavaScript, React, and modern web
                   technologies, Stefan excels at turning complex ideas into
                   interactive realities. Whether it's a sleek portfolio site, a
                   dynamic web app, or a mesmerizing animation, he approaches
-                  each project with creativity and technical precision.
+                  each project with creativity and technical precision.`}
                 </h3>
                 <br />
                 <h3>
-                  Driven by curiosity and innovation, Stefan constantly explores
-                  new tools, techniques, and frameworks. He’s not just a
-                  developer—he’s a problem solver, ready to bring your vision to
-                  life with a unique and modern touch.
+                  Driven by curiosity and innovation, Stefan constantly explores new tools, techniques, and frameworks. He’s not just a
+                  developer—he’s a problem solver, ready to bring your vision to life with a unique and modern touch.
                 </h3>
               </div>
             </div>
