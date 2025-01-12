@@ -7,7 +7,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import SplitType from "../../lib/SplitType/index";
+import SplitType from "../../../lib/SplitType/index";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,18 +25,9 @@ const Page = () => {
     () => {
       const tl = gsap.timeline();
 
-      tl.fromTo(
-        titleRef.current,
-        { y: 100 },
-        { y: 0, duration: 1.5, ease: "power4.out" }
-      );
+      tl.fromTo(titleRef.current, { y: 100 }, { y: 0, duration: 1.5, ease: "power4.out" });
 
-      tl.fromTo(
-        dateRef.current,
-        { y: 100 },
-        { y: 0, duration: 1.5, ease: "power4.out" },
-        "-=1.4"
-      );
+      tl.fromTo(dateRef.current, { y: 100 }, { y: 0, duration: 1.5, ease: "power4.out" }, "-=1.4");
 
       tl.fromTo(
         firstImgRef.current,
@@ -112,18 +103,12 @@ const Page = () => {
 
             <div className="copy">
               <h3 ref={(el) => (copyH3Refs.current[0] = el)}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                in dui mauris. Vivamus hendrerit arcu sed erat molestie
-                vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh
-                porttitor. Ut in nulla enim. Phasellus molestie magna non est
-                bibendum non venenatis nisl tempor. Suspendisse dictum feugiat
-                nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id
-                metus massa, ut blandit odio. Proin quis tortor orci. Etiam at
-                risus et justo dignissim congue. Donec congue lacinia dui, a
-                porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
-                Quisque eget odio ac lectus vestibulum faucibus eget in metus.
-                In pellentesque faucibus vestibulum. Nulla at nulla justo, eget
-                luctus tortor.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie
+                vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est
+                bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent
+                id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui,
+                a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in
+                metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor.
               </h3>
             </div>
 
@@ -137,17 +122,12 @@ const Page = () => {
 
             <div className="copy">
               <h3 ref={(el) => (copyH3Refs.current[1] = el)}>
-                Mauris iaculis porttitor posuere. Praesent id metus massa, ut
-                blandit odio. Proin quis tortor orci. Etiam at risus et justo
-                dignissim congue. Donec congue lacinia dui, a porttitor lectus
-                condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio
-                ac lectus vestibulum faucibus eget in metus. In pellentesque
-                faucibus vestibulum. Nulla at nulla justo, eget luctus tortor.
-                Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur
-                vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare
-                ante, ac egestas est urna sit amet arcu. Class aptent taciti
-                sociosqu ad litora torquent per conubia nostra, per inceptos
-                himenaeos.
+                Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo
+                dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget
+                odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus
+                tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus
+                lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+                per inceptos himenaeos.
               </h3>
             </div>
 
@@ -160,16 +140,11 @@ const Page = () => {
 
             <div className="copy">
               <h3 ref={(el) => (copyH3Refs.current[2] = el)}>
-                Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.
-                Ut in nulla enim. Phasellus molestie magna non est bibendum non
-                venenatis nisl tempor. Suspendisse dictum feugiat nisl ut
-                dapibus. Mauris iaculis porttitor posuere. Praesent id metus
-                massa, ut blandit odio. Proin quis tortor orci. Etiam at risus
-                et justo dignissim congue. Donec congue lacinia dui, a porttitor
-                lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque
-                eget odio ac lectus vestibulum faucibus eget in metus. In
-                pellentesque faucibus vestibulum. Nulla at nulla justo, eget
-                luctus tortor.
+                Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum
+                non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus
+                massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a
+                porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in
+                metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor.
               </h3>
             </div>
 

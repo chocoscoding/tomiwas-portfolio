@@ -1,12 +1,12 @@
 "use client";
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import "./home.css";
-import Footer from "./components/Footer/Footer";
+import Footer from "../components/Footer/Footer";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
-import ImageTrailEffect from "./components/Main/ImageTrail";
+import ImageTrailEffect from "../components/Main/ImageTrail";
 
 let isInitialLoad = true;
 
@@ -153,9 +153,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="about_me">
-        
-      </section>
+      <section className="about_me"></section>
     </>
   );
 }

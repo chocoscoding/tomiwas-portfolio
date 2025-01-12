@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import SplitType from "../lib/SplitType/index";
+import SplitType from "../../lib/SplitType/index";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { cvItems } from "./cvItems";
 
