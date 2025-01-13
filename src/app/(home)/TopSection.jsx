@@ -1,58 +1,43 @@
-"use client";
-import { useEffect, useRef, useState, useLayoutEffect } from "react";
-import "./home.css";
-import Footer from "../components/Footer/Footer";
-
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import CustomEase from "gsap/CustomEase";
-import ImageTrailEffect from "../components/Main/ImageTrail";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { Suspense, useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import dynamic from "next/dynamic";
 
-let isInitialLoad = true;
+const DynamicWebGLSphere = dynamic(() => import("../../components/WebGLSphere/WebGLSphere"), {
+  suspense: false,
+  ssr: false,
+});
 
-export default function Home() {
+const TopSection = ({ showPreloader }) => {
+  const topSectionRef = useRef(null);
   const containerRef = useRef(null);
-  const preloaderRef = useRef(null);
-  const progressBarRef = useRef(null);
-  const [showPreloader, setShowPreloader] = useState(isInitialLoad);
+  const particleContainerRef = useRef(null);
 
   useLayoutEffect(() => {
-    gsap.registerPlugin(CustomEase);
-    CustomEase.create("hop-main", "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1");
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      isInitialLoad = false;
-    };
+    gsap.registerPlugin(ScrollTrigger);
   }, []);
 
   useGSAP(
     () => {
-      if (showPreloader) {
-        const tl = gsap.timeline({
-          onComplete: () => setShowPreloader(false),
-        });
+      // Scroll-triggered animation
+      if (topSectionRef.current) {
+        const container = topSectionRef.current;
 
-        tl.to(preloaderRef.current, {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-          duration: 2,
-          delay: 5,
-          ease: "hop-main",
+        gsap.to(container, {
+          opacity: 0,
+          transform: "translateZ(-200px)",
+          scrollTrigger: {
+            trigger: container,
+            start: "top top", // Trigger animation when the top of the container hits the top of the viewport
+            end: "bottom top", // End animation when the bottom of the container hits the top of the viewport
+            scrub: true, // Smooth animation
+          },
         });
       }
-
-      gsap.to([".hero-title .line h1", ".hero-title .line h2"], {
-        y: 0,
-        stagger: 0.1,
-        delay: showPreloader ? 6 : 1,
-        duration: 1,
-      });
     },
-    { scope: containerRef, dependencies: [showPreloader] }
+    { scope: topSectionRef }
   );
-
-  let middleLineRef = useRef();
   useGSAP(
     () => {
       if (showPreloader) {
@@ -118,25 +103,26 @@ export default function Home() {
           ">-1.3"
         );
       }
+      const tlMain = gsap.timeline({});
+
+      tlMain.to([".hero-title .line h1", ".hero-title .line h2"], {
+        y: 0,
+        stagger: 0.1,
+        delay: showPreloader ? 6 : 1,
+        duration: 1,
+      });
+      tlMain.to(particleContainerRef.current, { opacity: 1, ease: "expo.in" }, ">-1");
     },
-    { scope: preloaderRef, dependencies: [showPreloader] }
+    { scope: topSectionRef, dependencies: [showPreloader] }
   );
 
   return (
-    <>
-      {showPreloader && (
-        <div className="pre-loader" ref={preloaderRef}>
-          <div className="main">
-            <p className="miniLogo">SA</p>
-            <div className="middleLine" ref={middleLineRef}>
-              <h3>When</h3>
-              <h3>Creativity</h3>
-              <h3>Meets</h3>
-              <h3>Excellence</h3>
-            </div>
-          </div>
-        </div>
-      )}
+    <section ref={topSectionRef}>
+      <div className="particleCont" ref={particleContainerRef}>
+        <Suspense fallback={<></>}>
+          <DynamicWebGLSphere />
+        </Suspense>
+      </div>
       <section className="top-section">
         <div className="home-page" ref={containerRef}>
           <div className="hero-title">
@@ -154,6 +140,8 @@ export default function Home() {
       </section>
 
       <section className="about_me"></section>
-    </>
+    </section>
   );
-}
+};
+
+export default TopSection;
