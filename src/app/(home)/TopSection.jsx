@@ -25,15 +25,24 @@ const TopSection = ({ showPreloader }) => {
         const container = topSectionRef.current;
 
         gsap.to(container, {
-          opacity: 0,
-          transform: "translateZ(-200px)",
+          opacity: 0.04,
           scrollTrigger: {
             trigger: container,
-            start: "top top", // Trigger animation when the top of the container hits the top of the viewport
-            end: "bottom top", // End animation when the bottom of the container hits the top of the viewport
-            scrub: true, // Smooth animation
+            start: "26% top",
+            end: "33% top",
+            scrub: true,
           },
         });
+        // gsap.to([".hero-title .line h1", ".hero-title .line h2"], {
+        //   y: 290,
+        //   scrollTrigger: {
+        //     markers: true,
+        //     trigger: container,
+        //     start: "10% top",
+        //     end: "20% top",
+        //     scrub: true,
+        //   },
+        // });
       }
     },
     { scope: topSectionRef }
@@ -117,7 +126,7 @@ const TopSection = ({ showPreloader }) => {
   );
 
   return (
-    <section ref={topSectionRef}>
+    <section ref={topSectionRef} className="topsection">
       <div className="particleCont" ref={particleContainerRef}>
         <Suspense fallback={<></>}>
           <DynamicWebGLSphere />

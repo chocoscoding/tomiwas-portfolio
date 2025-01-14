@@ -8,13 +8,15 @@ export const metadata = {
   title: "Stefan Markovic | Codegrid",
   description: "CGMWT September by Codegrid",
 };
-
+import SmoothScrolling from "../components/SmoothScroll";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Menu />
-        {children}
+        <SmoothScrolling>
+          <Menu />
+          {children}
+        </SmoothScrolling>
       </body>
     </html>
   );

@@ -1,19 +1,22 @@
 "use client";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, CameraShake } from "@react-three/drei";
-import { useControls } from "leva";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { OrbitControls, CameraShake, CameraControls, ScrollControls, Scroll, useScroll } from "@react-three/drei";
+import { useControls, button } from "leva";
 import Particles from "../Particles/Particles";
+import { useEffect, useLayoutEffect, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { MathUtils } from "three";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function WebGLSphere() {
-  //   const props = useControls({
-  //     fov2: { value: 26, min: 10, max: 100, step: 1 },
-  //     focus: { value: 5.7, min: 3, max: 7, step: 0.01 },
-  //     speed: { value: 36, min: 0.1, max: 100, step: 0.1 },
-  //     aperture: { value: 5.3, min: 1, max: 5.6, step: 0.1 },
-  //     fov: { value: 190, min: 0, max: 200 },
-  //     curl: { value: 0.19, min: 0.01, max: 0.5, step: 0.01 },
-  //     size: 512,
-  //   });
+  return (
+    <Canvas linear={true} camera={{ position: [0, 0, 6], fov: 26 }}>
+      <WebGLSphereMain />
+    </Canvas>
+  );
+}
+function WebGLSphereMain() {
   const propsProd = {
     focus: 5.7,
     speed: 35,
@@ -22,9 +25,36 @@ export default function WebGLSphere() {
     curl: 0.19,
     size: 512,
   };
+  const controlsHook = useThree((state) => state.camera);
+
+  const controls = useRef();
+  const zRef = useRef(6);
+
+  useFrame(() => {
+    controlsHook.position.set(0, 0, zRef.current);
+  });
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  }, []);
+
+  useGSAP(() => {
+    gsap.to(zRef, {
+      current: 0,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: ".topsection",
+        start: "top top",
+        end: "33% top",
+        scrub: true,
+        pin: ".topsection",
+      },
+    });
+  }, []);
+
   return (
-    <Canvas linear={true} camera={{ position: [0, 0, 6], fov: 26 }}>
-      <OrbitControls
+    <>
+      <CameraControls
+        ref={controls}
         makeDefault
         autoRotate
         autoRotateSpeed={0.5}
@@ -35,6 +65,6 @@ export default function WebGLSphere() {
       />
       <CameraShake yawFrequency={1} maxYaw={0.05} pitchFrequency={1} maxPitch={0.05} rollFrequency={0.5} maxRoll={0.5} intensity={0.2} />
       <Particles {...propsProd} />
-    </Canvas>
+    </>
   );
 }
