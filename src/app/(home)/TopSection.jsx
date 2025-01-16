@@ -20,35 +20,6 @@ const TopSection = ({ showPreloader }) => {
 
   useGSAP(
     () => {
-      // Scroll-triggered animation
-      if (topSectionRef.current) {
-        const container = topSectionRef.current;
-
-        gsap.to(container, {
-          opacity: 0.04,
-          scrollTrigger: {
-            trigger: container,
-            start: "26% top",
-            end: "33% top",
-            scrub: true,
-          },
-        });
-        // gsap.to([".hero-title .line h1", ".hero-title .line h2"], {
-        //   y: 290,
-        //   scrollTrigger: {
-        //     markers: true,
-        //     trigger: container,
-        //     start: "10% top",
-        //     end: "20% top",
-        //     scrub: true,
-        //   },
-        // });
-      }
-    },
-    { scope: topSectionRef }
-  );
-  useGSAP(
-    () => {
       if (showPreloader) {
         const tl = gsap.timeline({});
         let q = gsap.utils.selector(middleLineRef);
@@ -121,6 +92,23 @@ const TopSection = ({ showPreloader }) => {
         duration: 1,
       });
       tlMain.to(particleContainerRef.current, { opacity: 1, ease: "expo.in" }, ">-1");
+      tlMain.fromTo(
+        [".hero-title .line h1"],
+        {
+          y: 0,
+        },
+        {
+          y: 290,
+          scrollTrigger: {
+            // markers: true,
+            trigger: containerRef.current,
+            start: "10% top",
+            end: "50% top",
+            scrub: true,
+          },
+        },
+        "<"
+      );
     },
     { scope: topSectionRef, dependencies: [showPreloader] }
   );
@@ -147,8 +135,6 @@ const TopSection = ({ showPreloader }) => {
           </div>
         </div>
       </section>
-
-      <section className="about_me"></section>
     </section>
   );
 };

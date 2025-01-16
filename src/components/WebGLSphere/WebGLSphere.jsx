@@ -28,25 +28,28 @@ function WebGLSphereMain() {
   const controlsHook = useThree((state) => state.camera);
 
   const controls = useRef();
-  const zRef = useRef(6);
+  const zRef = useRef({
+    z: 6,
+    y: 0,
+  });
 
   useFrame(() => {
-    controlsHook.position.set(0, 0, zRef.current);
+    controlsHook.position.set(0, zRef.current.y, zRef.current.z);
   });
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
   }, []);
 
   useGSAP(() => {
-    gsap.to(zRef, {
-      current: 0,
-      ease: "power4.out",
+    gsap.to(zRef.current, {
+      z: 7,
+      ease: "power4.inOut",
       scrollTrigger: {
         trigger: ".topsection",
-        start: "top top",
-        end: "33% top",
+        start: "5% top",
+        end: "30% top",
         scrub: true,
-        pin: ".topsection",
+        // pin: ".topsection",
       },
     });
   }, []);
