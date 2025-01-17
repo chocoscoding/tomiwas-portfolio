@@ -38,7 +38,7 @@ const Skillset = () => {
         start: "top top+=25%",
         end: "10% 5%",
         scrub: true,
-        markers: true,
+        // markers: true,
       },
     });
     lineTimeline.to(".h1_3", {

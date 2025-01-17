@@ -20,89 +20,14 @@ const TopSection = ({ showPreloader }) => {
 
   useGSAP(
     () => {
-      if (showPreloader) {
-        const tl = gsap.timeline({});
-        let q = gsap.utils.selector(middleLineRef);
-        const h3Elements = q("h3");
-
-        tl.to(h3Elements[0], {
-          opacity: 1,
-          duration: 0.55,
-        });
-        tl.to(h3Elements[0], {
-          opacity: 0,
-          duration: 0.25,
-        });
-        tl.to(
-          h3Elements[1],
-          {
-            opacity: 1,
-            duration: 0.55,
-          },
-          "<0.2"
-        );
-        tl.to(h3Elements[1], {
-          opacity: 0,
-          duration: 0.25,
-        });
-        tl.to(
-          h3Elements[2],
-          {
-            opacity: 1,
-            duration: 0.55,
-          },
-          "<0.2"
-        );
-        tl.to(h3Elements[2], {
-          opacity: 0,
-          duration: 0.25,
-        });
-        tl.to(
-          h3Elements[3],
-          {
-            opacity: 1,
-            duration: 0.55,
-          },
-          "<0.2"
-        );
-        tl.to([h3Elements[3], ".middleLine"], {
-          delay: 0.5,
-          opacity: 0,
-          duration: 0.5,
-        });
-        tl.to(
-          ".miniLogo",
-          {
-            opacity: 1,
-            x: "-50%",
-            y: "-50%",
-            scale: 1,
-            duration: 2.25,
-            ease: "sine.inOut",
-          },
-          ">-1.3"
-        );
-      }
-    },
-    { scope: topSectionRef, dependencies: [showPreloader] }
-  );
-
-  useGSAP(
-    () => {
       const tlMain = gsap.timeline({});
 
-      tlMain.fromTo(
-        [".hero-title .line h1", ".hero-title .line h2"],
-        {
-          y: 300,
-        },
-        {
-          y: 0,
-          stagger: 0.1,
-          delay: showPreloader ? 6 : 1,
-          duration: 1,
-        }
-      );
+      tlMain.to([".hero-title .line h1", ".hero-title .line h2"], {
+        y: 0,
+        stagger: 0.1,
+        delay: showPreloader ? 6 : 1,
+        duration: 1,
+      });
       tlMain.to(particleContainerRef.current, { opacity: 1, ease: "expo.in" }, ">-1");
 
       ScrollTrigger.create({
@@ -110,7 +35,7 @@ const TopSection = ({ showPreloader }) => {
         start: "10% top",
         end: "50% top",
         scrub: true,
-        markers: true,
+        // markers: true,
         onUpdate: (self) => {
           const yAxis = 290 * self.progress * 1.4;
           gsap.to([".hero-title .line h1"], {

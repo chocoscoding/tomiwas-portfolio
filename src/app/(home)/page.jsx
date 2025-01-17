@@ -12,7 +12,7 @@ import TopSection from "./TopSection";
 import AboutMe from "./AboutMe";
 import Skillset from "./Skillset";
 
-let isInitialLoad = false;
+let isInitialLoad = true;
 
 const Home = () => {
   const preloaderRef = useRef(null);
@@ -47,6 +47,75 @@ const Home = () => {
       }
     },
     { dependencies: [showPreloader] }
+  );
+
+  useGSAP(
+    () => {
+      if (showPreloader) {
+        const tl = gsap.timeline({});
+        let q = gsap.utils.selector(middleLineRef);
+        const h3Elements = q("h3");
+
+        tl.to(h3Elements[0], {
+          opacity: 1,
+          duration: 0.55,
+        });
+        tl.to(h3Elements[0], {
+          opacity: 0,
+          duration: 0.25,
+        });
+        tl.to(
+          h3Elements[1],
+          {
+            opacity: 1,
+            duration: 0.55,
+          },
+          "<0.2"
+        );
+        tl.to(h3Elements[1], {
+          opacity: 0,
+          duration: 0.25,
+        });
+        tl.to(
+          h3Elements[2],
+          {
+            opacity: 1,
+            duration: 0.55,
+          },
+          "<0.2"
+        );
+        tl.to(h3Elements[2], {
+          opacity: 0,
+          duration: 0.25,
+        });
+        tl.to(
+          h3Elements[3],
+          {
+            opacity: 1,
+            duration: 0.55,
+          },
+          "<0.2"
+        );
+        tl.to([h3Elements[3], ".middleLine"], {
+          delay: 0.5,
+          opacity: 0,
+          duration: 0.5,
+        });
+        tl.to(
+          ".miniLogo",
+          {
+            opacity: 1,
+            x: "-50%",
+            y: "-50%",
+            scale: 1,
+            duration: 2.25,
+            ease: "sine.inOut",
+          },
+          ">-1.3"
+        );
+      }
+    },
+    { scope: preloaderRef.current, dependencies: [showPreloader] }
   );
 
   return (

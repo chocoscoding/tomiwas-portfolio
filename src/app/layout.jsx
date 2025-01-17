@@ -1,6 +1,6 @@
-import localFont from "next/font/local";
 import "../styles/globals.css";
 import "../styles/home.css";
+import localFont from "next/font/local";
 
 import Menu from "../components/Menu/Menu";
 

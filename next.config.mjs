@@ -8,25 +8,16 @@ const bundleAnalyzer = withBundleAnalyzer({
 });
 
 const nextConfig = {
-  // Append the default value with md extensions
   reactStrictMode: true,
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   webpack: (config, options) => {
-    config.module.rules.push(
-      // Shaders
-      {
-        test: /\.(glsl|vs|fs|vert|frag)$/,
-        use: ["raw-loader", "glslify-loader"],
-      },
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      }
-    );
+    config.module.rules.push({
+      test: /\.(glsl|vs|fs|vert|frag)$/,
+      use: ["raw-loader", "glslify-loader"],
+    });
 
     return config;
   },
 };
 
 // Combine plugins
-export default withPlugins([withTM(["three"]), bundleAnalyzer], nextConfig);
+export default withPlugins([bundleAnalyzer], nextConfig);
