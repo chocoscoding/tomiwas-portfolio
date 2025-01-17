@@ -31,8 +31,8 @@ const AboutMe = () => {
           stagger: 0.06,
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "top bottom",
-            end: "center center",
+            start: "center bottom",
+            end: "center center-=30%",
             scrub: true,
           },
         }
@@ -68,7 +68,7 @@ const AboutMe = () => {
             start: "top top+=10%",
             end: "center center-=50%",
             scrub: true,
-          },
+            },
         },
         ">"
       );
@@ -85,14 +85,15 @@ const AboutMe = () => {
       );
       */
 
-      ScrollTrigger.create({
-        trigger: ".pinned",
-        start: "top top",
-        endTrigger: ".whitespace",
-        end: "bottom top",
-        pin: true,
-        pinSpacing: false,
-      });
+      // ScrollTrigger.create({
+      //   trigger: ".pinned",
+      //   start: "top top",
+      //   endTrigger: ".whitespace",
+      //   end: "bottom top",
+      //   pin: true,
+      //   pinSpacing: false,
+      //   markers: true,
+      // });
 
       // ScrollTrigger.create({
       //   trigger: ".header-info",
@@ -169,35 +170,17 @@ const AboutMe = () => {
     { scope: mainRef.current }
   );
   return (
-    <section className="aboutme" ref={mainRef}>
-      <p ref={pTagRef}>
-        Hi!<span className="wave">👋</span> My name is Ayotomiwa Solarin, but you can call me <span className="nameWrapper">Ayo😁.</span> I
-        am a product designer, but generally wear multiple hats as a motion designer, Brand designer and Graphics designer{" "}
-        <span className="specialText">(a full stack designer if you will)</span> and I’ve been doing what I love for 4 years now.
-      </p>
-      <section className="whitespace"></section>
-
-      <section className="pinned">
-        <div className="revealer">
-          <div className="revealer-1"></div>
-          <div className="revealer-2"></div>
-        </div>
-      </section>
-      <section class="header-info">
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore praesentium eaque ipsa illum rem cumque iusto natus, saepe
-          provident quasi?
+    <main className="aboutWrapper">
+      <section className="aboutme" ref={mainRef}>
+        <p ref={pTagRef}>
+          Hi!<span className="wave">👋</span> My name is Ayotomiwa Solarin, but you can call me <span className="nameWrapper">Ayo😁.</span>{" "}
+          I am a product designer, but generally wear multiple hats as a motion designer, Brand designer and Graphics designer{" "}
+          <span className="specialText">(a full stack designer if you will)</span> and I’ve been doing what I love for 4 years now.
         </p>
-
-        <div class="header-images">
-          <div class="img"></div>
-          <div class="img"></div>
-          <div class="img"></div>
-          <div class="img"></div>
-        </div>
       </section>
+      <section className="whitespace"></section>
       <div className="aboutEnd"></div>
-    </section>
+    </main>
   );
 };
 

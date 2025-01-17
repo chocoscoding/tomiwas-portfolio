@@ -6,7 +6,7 @@
   padding: 2em;
   display: flex;
   align-items: center;
-  z-index: 10;
+  z-index: 11;
 }
 
 .menu-toggle-wrapper,

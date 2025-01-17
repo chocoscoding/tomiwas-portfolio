@@ -83,32 +83,41 @@ const TopSection = ({ showPreloader }) => {
           ">-1.3"
         );
       }
+    },
+    { scope: topSectionRef, dependencies: [showPreloader] }
+  );
+
+  useGSAP(
+    () => {
       const tlMain = gsap.timeline({});
 
-      tlMain.to([".hero-title .line h1", ".hero-title .line h2"], {
-        y: 0,
-        stagger: 0.1,
-        delay: showPreloader ? 6 : 1,
-        duration: 1,
-      });
-      tlMain.to(particleContainerRef.current, { opacity: 1, ease: "expo.in" }, ">-1");
       tlMain.fromTo(
-        [".hero-title .line h1"],
+        [".hero-title .line h1", ".hero-title .line h2"],
+        {
+          y: 300,
+        },
         {
           y: 0,
-        },
-        {
-          y: 290,
-          scrollTrigger: {
-            // markers: true,
-            trigger: containerRef.current,
-            start: "10% top",
-            end: "50% top",
-            scrub: true,
-          },
-        },
-        "<"
+          stagger: 0.1,
+          delay: showPreloader ? 6 : 1,
+          duration: 1,
+        }
       );
+      tlMain.to(particleContainerRef.current, { opacity: 1, ease: "expo.in" }, ">-1");
+
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "10% top",
+        end: "50% top",
+        scrub: true,
+        markers: true,
+        onUpdate: (self) => {
+          const yAxis = 290 * self.progress * 1.4;
+          gsap.to([".hero-title .line h1"], {
+            y: yAxis,
+          });
+        },
+      });
     },
     { scope: topSectionRef, dependencies: [showPreloader] }
   );

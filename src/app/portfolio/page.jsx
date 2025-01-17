@@ -5,7 +5,6 @@ import "./portfolio.css";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ReactLenis } from "@studio-freight/react-lenis";
 
 const Page = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -121,7 +120,6 @@ const Page = () => {
   };
 
   return (
-    <ReactLenis root>
       <div
         className={`portfolio-page ${isLoaded ? "loaded" : ""}`}
         ref={containerRef}
@@ -133,7 +131,6 @@ const Page = () => {
           {isLoaded && renderProjectRows()}
         </div>
       </div>
-    </ReactLenis>
   );
 };
 

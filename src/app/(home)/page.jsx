@@ -10,6 +10,7 @@ import CustomEase from "gsap/CustomEase";
 import dynamic from "next/dynamic";
 import TopSection from "./TopSection";
 import AboutMe from "./AboutMe";
+import Skillset from "./Skillset";
 
 let isInitialLoad = false;
 
@@ -65,6 +66,7 @@ const Home = () => {
       )}
       <TopSection showPreloader={showPreloader} />
       <AboutMe />
+      <Skillset />
     </main>
   );
 };

@@ -1,3 +1,4 @@
+"use client";
 /**
  * SplitType
  * https://github.com/lukePeavey/SplitType
@@ -399,36 +400,16 @@ const rsZWJ = "\\u200d";
 
 const reOptMod = `${rsModifier}?`;
 const rsOptVar = `[${rsVarRange}]?`;
-const rsOptJoin =
-  "(?:" +
-  rsZWJ +
-  "(?:" +
-  [rsNonAstral, rsRegional, rsSurrPair].join("|") +
-  ")" +
-  rsOptVar +
-  reOptMod +
-  ")*";
+const rsOptJoin = "(?:" + rsZWJ + "(?:" + [rsNonAstral, rsRegional, rsSurrPair].join("|") + ")" + rsOptVar + reOptMod + ")*";
 const rsSeq = rsOptVar + reOptMod + rsOptJoin;
-const rsSymbol = `(?:${[
-  `${rsNonAstral}${rsCombo}?`,
-  rsCombo,
-  rsRegional,
-  rsSurrPair,
-  rsAstral,
-].join("|")}
+const rsSymbol = `(?:${[`${rsNonAstral}${rsCombo}?`, rsCombo, rsRegional, rsSurrPair, rsAstral].join("|")}
   )`;
 /** Used to match [string symbols](https://mathiasbynens.be/notes/javascript-unicode). */
 
 const reUnicode = RegExp(`${rsFitz}(?=${rsFitz})|${rsSymbol}${rsSeq}`, "g");
 /** Used to detect strings with [zero-width joiners or code points from the astral planes](http://eev.ee/blog/2015/09/12/dark-corners-of-unicode/). */
 
-const unicodeRange = [
-  rsZWJ,
-  rsAstralRange,
-  rsComboMarksRange,
-  rsComboSymbolsRange,
-  rsVarRange,
-];
+const unicodeRange = [rsZWJ, rsAstralRange, rsComboMarksRange, rsComboSymbolsRange, rsVarRange];
 const reHasUnicode = RegExp(`[${unicodeRange.join("")}]`);
 /**
  * Converts an ASCII `string` to an array.
@@ -636,9 +617,7 @@ function splitWordsAndChars(textNode, settings) {
       //    plain text content (WORD)
       wordElement = createElement(TAG_NAME, {
         class: `${settings.wordClass} ${settings.splitClass}`,
-        style: `display: inline-block; ${
-          types.words && settings.absolute ? `position: relative;` : ""
-        }`,
+        style: `display: inline-block; ${types.words && settings.absolute ? `position: relative;` : ""}`,
         children: types.chars ? characterElementsForCurrentWord : WORD,
       });
       set(wordElement, {
@@ -858,12 +837,7 @@ function repositionAfterSplit(element, settings, scrollPos) {
     const isWordLike = node.parentElement === element; // TODO needs work
     // Get te size and position of split text nodes
 
-    const { width, height, top, left } = getPosition(
-      node,
-      isWordLike,
-      settings,
-      scrollPos
-    ); // If element is a `<br>` tag return here
+    const { width, height, top, left } = getPosition(node, isWordLike, settings, scrollPos); // If element is a `<br>` tag return here
 
     if (/^br$/i.test(node.nodeName)) return;
 
@@ -981,9 +955,7 @@ function repositionAfterSplit(element, settings, scrollPos) {
       // -> IF `node` is the child of a line element, the value has to adjusted
       //    so its relative to the line element
 
-      node.style.left = isLine
-        ? `${contentBox.left}px`
-        : `${left - (isChildOfLineNode ? contentBox.left : 0)}px`; // Set the height of the current node to the cached value.
+      node.style.left = isLine ? `${contentBox.left}px` : `${left - (isChildOfLineNode ? contentBox.left : 0)}px`; // Set the height of the current node to the cached value.
 
       node.style.height = `${height}px`; //  Set the width of the current node.
       //  If its a line element, width is equal to the width of the contentBox.
