@@ -225,7 +225,6 @@
 .skillset-section {
   width: 100%;
   height: 100vh;
-  border: 1px solid red;
   color: #fff;
 }
 
@@ -245,5 +244,25 @@
   filter: blur(10px);
   opacity: 0;
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+
+.skillset-section .header.line {
+  width: 100%;
+  /* border: 1px solid red; */
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+  position: relative;
+}
+
+.skillset-section .header.line .h1_3 {
+  font-family: "ImpostureGrotesk";
+  font-weight: 800;
+  border-bottom: 1px solid white;
+  font-size: 4rem;
+  position: relative;
+  transform: translateY(240px);
+  line-height: 120%;
+  z-index: 2;
 }
 /* ------------- */

@@ -31,10 +31,26 @@ const Skillset = () => {
       filter: "blur(0px)",
       stagger: 0.2, // Add a stagger delay between animations
     });
+
+    gsap.to(".h1_3", {
+      y: 0,
+      stagger: 0.1,
+      delay: 0.75,
+      duration: 1.5,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: skillsetRef.current,
+        start: "top top",
+        end: "top top+=5%",
+        scrub: true,
+      },
+    });
   });
   return (
     <div className="skillset-section d-flex" ref={skillsetRef}>
-      
+      <div className="header line">
+        <h1 className="h1_3">Skills</h1>
+      </div>
       <div className="skills d-flex">
         <h2 className="skillElement" id="figma">
           Figma
