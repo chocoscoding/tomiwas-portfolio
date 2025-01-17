@@ -28,7 +28,7 @@ const AboutPage = () => {
       splitTexts.forEach((text) => {
         const split = new SplitText(text, {
           types: "lines",
-          tagName: "span",
+          tag: "span",
         });
 
         split.lines.forEach((line) => {
