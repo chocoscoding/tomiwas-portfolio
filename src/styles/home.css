@@ -108,7 +108,7 @@
 .hero-title h1 {
   font-family: "ImpostureGrotesk";
   font-weight: 800;
-  font-size: 14rem;
+  font-size: 15vw;
   position: relative;
   transform: translateY(240px);
   will-change: transform;
@@ -126,6 +126,26 @@
 .h1_2 {
   text-align: right;
   margin-right: 5%;
+}
+@media screen and (max-width: 1000px) {
+  .hero-title h1 {
+    font-size: 20vw;
+  }
+  .h1_1 {
+    text-align: center;
+    margin-left: 2%;
+  }
+  .h1_2 {
+    text-align: center;
+    margin-right: 0%;
+  }
+  .line h2 {
+    font-size: 4vw;
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+    font-style: italic;
+    font-weight: 200;
+  }
 }
 
 .line h2 {
@@ -146,7 +166,7 @@
 
 @media (max-width: 900px) {
   .hero-title {
-    width: 90%;
+    width: 99%;
   }
 }
 .aboutWrapper {
@@ -157,13 +177,21 @@
   height: 80vh;
   max-height: 900px;
 }
-
+@media screen and (max-width: 500px) {
+  .aboutme {
+    padding: 0.5rem;
+  }
+  .aboutme p {
+    margin-top: 2rem !important;
+    font-size: 6vw !important;
+  }
+}
 .aboutme p {
   margin-top: 5rem;
-  font-size: clamp(1.2rem, 0.75rem + 2.4vw, 3rem);
+  font-size: 3.6vw !important;
+  /* font-size: clamp(1.2rem, 0.75rem + 2.4vw, 3rem); */
   color: var(--text);
-
-  /* opacity: 0.01; */
+  text-wrap: initial;
 }
 
 .aboutme p .wave {

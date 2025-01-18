@@ -41,8 +41,22 @@ const Skillset = () => {
         // markers: true,
       },
     });
-    lineTimeline.to(".h1_3", {
-      y: 0,
+    ScrollTrigger.create({
+      trigger: skillsetRef.current,
+      start: "top top+=25%",
+      end: "10% 5%",
+      scrub: true,
+      duration: 1.5,
+      onEnter: () => {
+        gsap.to(".h1_3", {
+          y: 0,
+        });
+      },
+      onLeave: () => {
+        gsap.to(".h1_3", {
+          y: 0,
+        });
+      },
     });
     lineTimeline.to(".h1_line", {
       width: "90%",

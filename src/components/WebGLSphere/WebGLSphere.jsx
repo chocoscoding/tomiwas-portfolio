@@ -20,7 +20,7 @@ function WebGLSphereMain() {
   const propsProd = {
     focus: 5.7,
     speed: 35,
-    aperture: 5.3,
+    aperture: 9.3,
     fov: 190,
     curl: 0.19,
     size: 512,
@@ -31,6 +31,7 @@ function WebGLSphereMain() {
   const zRef = useRef({
     z: 6,
     y: 0,
+    zEnd: 7,
   });
 
   useFrame(() => {
@@ -42,7 +43,7 @@ function WebGLSphereMain() {
 
   useGSAP(() => {
     gsap.to(zRef.current, {
-      z: 7,
+      z: zRef.current.zEnd,
       ease: "power4.inOut",
       scrollTrigger: {
         trigger: ".topsection",
@@ -52,6 +53,17 @@ function WebGLSphereMain() {
         // pin: ".topsection",
       },
     });
+  }, []);
+
+  const particleSize = (e) => {
+    if (e.target.innerWidth < 600) {
+      zRef.current.z = 6.3;
+      zRef.current.zEnd = 7.6;
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("resize", particleSize);
+    return () => window.removeEventListener("resize", particleSize);
   }, []);
 
   return (
