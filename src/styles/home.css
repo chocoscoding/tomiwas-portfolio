@@ -177,6 +177,12 @@
   height: 80vh;
   max-height: 900px;
 }
+@media screen and (max-width: 1000px) {
+  .aboutme p {
+    margin-top: 2rem !important;
+    font-size: 4.5vw !important;
+  }
+}
 @media screen and (max-width: 500px) {
   .aboutme {
     padding: 0.5rem;
@@ -188,7 +194,9 @@
 }
 .aboutme p {
   margin-top: 5rem;
-  font-size: 3.6vw !important;
+  font-size: 3.3vw !important;
+  word-break: keep-all;
+  line-height: 120%;
   /* font-size: clamp(1.2rem, 0.75rem + 2.4vw, 3rem); */
   color: var(--text);
   text-wrap: initial;

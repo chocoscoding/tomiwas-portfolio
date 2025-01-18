@@ -35,33 +35,21 @@ const Skillset = () => {
     const lineTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: skillsetRef.current,
-        start: "top top+=25%",
+        start: "top top+=35%",
         end: "10% 5%",
         scrub: true,
         // markers: true,
       },
     });
-    ScrollTrigger.create({
-      trigger: skillsetRef.current,
-      start: "top top+=25%",
-      end: "10% 5%",
-      scrub: true,
-      duration: 1.5,
-      onEnter: () => {
-        gsap.to(".h1_3", {
-          y: 0,
-        });
-      },
-      onLeave: () => {
-        gsap.to(".h1_3", {
-          y: 0,
-        });
-      },
+
+    lineTimeline.to(".h1_3", {
+      y: 0,
+      ease: "power3.out",
     });
     lineTimeline.to(".h1_line", {
-      width: "90%",
-      delay: 0.2,
-      ease: "power4.out",
+      delay: 0.3,
+      width: "80%",
+      ease: "power4.in",
     });
   });
   return (
