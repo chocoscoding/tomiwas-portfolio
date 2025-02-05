@@ -19,8 +19,9 @@ const AboutMe = () => {
     () => {
       const tlForHand = gsap.timeline();
       var split = new SplitText(pTagRef.current, { type: "lines", linesClass: "aboutLine" });
+      var split2 = new SplitText(".aboutLine", { type: "lines", linesClass: "aboutLine2" });
       gsap.fromTo(
-        split.lines,
+        split2.lines,
         {
           y: 200,
           opacity: 0,
@@ -29,6 +30,7 @@ const AboutMe = () => {
           y: 0,
           opacity: 1,
           stagger: 0.02,
+          ease: "power4.out",
           scrollTrigger: {
             trigger: mainRef.current,
             start: "center bottom",
