@@ -217,3 +217,11 @@ w-full {
 .h-full {
   height: 100%;
 }
+
+.father {
+  width: auto;
+  max-width: 1500px;
+  margin: auto;
+  position: relative;
+  /* border: 1px solid red; */
+}

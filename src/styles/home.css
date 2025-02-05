@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: var(--bgLighter);
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -84,7 +84,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
 }
@@ -93,7 +93,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   z-index: 1;
@@ -268,6 +268,7 @@
 .aboutLine {
   position: relative;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 /* skillset */
@@ -298,14 +299,12 @@
   font-size: 1.5vw;
 }
 
-.skillset {
-  height: fit-content;
-}
 .skillset_section {
   width: 100%;
   height: 100vh;
   max-height: 700px;
   padding: 1%;
+  margin-bottom: 5rem;
 }
 .skillset_container {
   width: 100%;
@@ -324,7 +323,6 @@
   color: var(--text);
   font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 1rem;
 }
 .skillset_gravity {
   width: 100%;
@@ -339,7 +337,6 @@
   width: 150px !important;
   margin: 0.1rem;
   padding: 1rem;
-  background-color: gray;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-md);
   color: var(--foreground-color);
@@ -347,7 +344,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 35px;
-  background: #1e1b1b;
+  background: #1a1818;
   box-shadow: inset -5px -5px 10px #1a1818, inset 5px 5px 10px #221e1e;
 }
 .skillset_icon.circle {

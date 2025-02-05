@@ -17,7 +17,6 @@ const AboutMe = () => {
 
   useGSAP(
     () => {
-      const tlForHand = gsap.timeline();
       var split = new SplitText(pTagRef.current, { type: "lines", linesClass: "aboutLine" });
       var split2 = new SplitText(".aboutLine", { type: "lines", linesClass: "aboutLine2" });
       gsap.fromTo(
@@ -35,7 +34,6 @@ const AboutMe = () => {
             trigger: mainRef.current,
             start: "center bottom",
             end: "5%",
-            scrub: true,
           },
         }
       );
@@ -46,9 +44,10 @@ const AboutMe = () => {
     <main className="aboutWrapper">
       <section className="aboutme" ref={mainRef}>
         <p ref={pTagRef}>
-          Hi!<span className="wave">👋</span> My name is Ayotomiwa Solarin, but you can call me <span className="nameWrapper">Ayo😁.</span>{" "}
-          I am a product designer, but generally wear multiple hats as a motion designer, Brand designer and Graphics designer{" "}
-          <span className="specialText">(a full stack designer if you will)</span> and I’ve been doing what I love for 4 years now.
+          Hi!<span className="wave">👋</span> <br /> My name is Ayotomiwa Solarin, but you can call me{" "}
+          <span className="nameWrapper">Ayo😁.</span> I am a product designer, but generally wear multiple hats as a motion designer, Brand
+          designer and Graphics designer <span className="specialText">(a full stack designer if you will)</span> and I’ve been doing what I
+          love for 4 years now.
         </p>
       </section>
       <section className="whitespace"></section>

@@ -61,8 +61,9 @@ export default function Preview() {
       });
       ScrollTrigger.create({
         trigger: skillRef.current,
-        start: "top-=8% center",
+        start: "top-=15% center",
         end: "top+=10% center",
+        markers: true,
         onEnter: () => {
           gsap.to(split2.words, {
             duration: 0.5,
@@ -103,14 +104,14 @@ export default function Preview() {
       <div className="skillset_container">
         <Gravity autoStart={start} gravity={{ x: 0, y: 1 }} resetOnResize className="skillset_gravity">
           {icons.map((IconData, index) => {
-            const incrementAmount = 100 / (icons.length / 2);
-            const row = Math.floor(index / (icons.length / 2));
-            const col = index % (icons.length / 2);
+            const incrementAmount = window.innerWidth >= 1200 ? 100 / (icons.length / 2) : 100 / 6;
+            const itemsPerRow = window.innerWidth >= 1400 ? icons.length / 2 : 6;
+            const row = Math.floor(index / itemsPerRow);
+            const col = index % itemsPerRow;
             const randomX = col * incrementAmount; // Increment x position
             const Icon = IconData.icon;
-            // const randomX = Math.random() * 60 + 20; // Random x between 20-80%
-            const randomY = Math.random() * 20 + 5; // Random y between 5-25%
-            const randomAngle = Math.random() * 80; // Random deg between 0-40
+            const randomY = window.innerWidth >= 1400 ? row * 20 + Math.random() * 10 + 20 : row * 30 + Math.random() * 10 + 30; // Adjust y position based on screen size
+            const randomAngle = Math.random() * 80; // Random deg between 0-80
 
             const bodyType = Math.random() > 0.7 ? "rectangle" : "rectangle";
 

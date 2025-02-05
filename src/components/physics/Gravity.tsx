@@ -52,9 +52,9 @@ export const MatterBody = ({
   children,
   className,
   matterBodyOptions = {
-    friction: 0.1,
-    restitution: 0.1,
-    density: 0.001,
+    friction: 0.051,
+    restitution: 0.05,
+    density: 0.0005,
     isStatic: false,
   },
   bodyType = "rectangle",

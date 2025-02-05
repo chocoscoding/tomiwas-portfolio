@@ -7,7 +7,7 @@ function SmoothScrolling({ children }) {
       root
       options={{
         smoothTouch: true,
-        lerp: 0.07,
+        lerp: 0.03,
         smoothWheel: true,
         // easing:
         gestureDirection: "vertical",

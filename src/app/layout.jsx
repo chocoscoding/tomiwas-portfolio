@@ -5,18 +5,20 @@ import localFont from "next/font/local";
 import Menu from "../components/Menu/Menu";
 
 export const metadata = {
-  title: "Stefan Markovic | Codegrid",
-  description: "CGMWT September by Codegrid",
+  title: "Ayotomiwa Solarin",
+  description: "Solarin Ayotomiwa - Creative",
 };
 import SmoothScrolling from "../components/SmoothScroll";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SmoothScrolling>
-          <Menu />
-          {children}
-        </SmoothScrolling>
+        <div className="father">
+          <SmoothScrolling>
+            <Menu />
+            {children}
+          </SmoothScrolling>
+        </div>
       </body>
     </html>
   );
