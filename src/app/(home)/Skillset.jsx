@@ -1,44 +1,7 @@
-"use client";
-import {
-  Atom,
-  AudioLines,
-  BatteryCharging,
-  Brain,
-  Cloud,
-  Cog,
-  Cpu,
-  Cuboid,
-  Database,
-  Earth,
-  Eye,
-  Globe,
-  HandMetal,
-  Heart,
-  Laptop,
-  Layers,
-  MessageCircle,
-  Microscope,
-  Move,
-  Paintbrush,
-  PaintRoller,
-  PersonStanding,
-  Pyramid,
-  Regex,
-  Rocket,
-  Satellite,
-  Save,
-  ScanFace,
-  Settings,
-  Sigma,
-  Sparkles,
-  Star,
-  Sun,
-  TrendingUp,
-  Zap,
-} from "lucide-react";
-import Gravity, { MatterBody } from "../../components/physics/Gravity";
 import { Framer, Html, Css, Webflow, Figma } from "../../components/Icons";
-import { useLayoutEffect, useRef, useState } from "react";
+import { Microscope, Globe, Laptop, Rocket, PaintRoller, Eye, ScanFace, PersonStanding, Sun } from "lucide-react";
+import Gravity, { MatterBody } from "../../components/physics/Gravity";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -47,6 +10,8 @@ import { SplitText } from "gsap/SplitText";
 export default function Preview() {
   const skillRef = useRef(null);
   const [start, setStart] = useState(false);
+  const [layoutConfig, setLayoutConfig] = useState({ incrementAmount: 0, itemsPerRow: 0, isLargeScreen: false });
+
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger, SplitText);
   }, []);
@@ -63,7 +28,6 @@ export default function Preview() {
         trigger: skillRef.current,
         start: "top-=15% center",
         end: "top+=10% center",
-        markers: true,
         onEnter: () => {
           gsap.to(split2.words, {
             duration: 0.5,
@@ -94,8 +58,24 @@ export default function Preview() {
     { icon: Css, size: 24 },
     { icon: Webflow, size: 24 },
     { icon: Figma, size: 24 },
-    { icon: Paintbrush, size: 100 },
   ];
+
+  useEffect(() => {
+    if (typeof window === "undefined") return; // Ensure this only runs on the client side
+
+    const updateLayoutConfig = () => {
+      const isLargeScreen = window.innerWidth >= 1400;
+      const incrementAmount = window.innerWidth >= 1200 ? 100 / (icons.length / 2) : 100 / 6;
+      const itemsPerRow = isLargeScreen ? icons.length / 2 : 6;
+
+      setLayoutConfig({ incrementAmount, itemsPerRow, isLargeScreen });
+    };
+
+    updateLayoutConfig();
+    window.addEventListener("resize", updateLayoutConfig);
+
+    return () => window.removeEventListener("resize", updateLayoutConfig);
+  }, []);
 
   return (
     <section className="skillset_section" ref={skillRef}>
@@ -104,26 +84,23 @@ export default function Preview() {
       <div className="skillset_container">
         <Gravity autoStart={start} gravity={{ x: 0, y: 1 }} resetOnResize className="skillset_gravity">
           {icons.map((IconData, index) => {
-            const incrementAmount = window.innerWidth >= 1200 ? 100 / (icons.length / 2) : 100 / 6;
-            const itemsPerRow = window.innerWidth >= 1400 ? icons.length / 2 : 6;
+            const { incrementAmount, itemsPerRow, isLargeScreen } = layoutConfig;
             const row = Math.floor(index / itemsPerRow);
             const col = index % itemsPerRow;
-            const randomX = col * incrementAmount; // Increment x position
+            const randomX = col * incrementAmount;
+            const randomY = isLargeScreen ? row * 20 + Math.random() * 10 + 20 : row * 30 + Math.random() * 10 + 30;
+            const randomAngle = Math.random() * 80;
             const Icon = IconData.icon;
-            const randomY = window.innerWidth >= 1400 ? row * 20 + Math.random() * 10 + 20 : row * 30 + Math.random() * 10 + 30; // Adjust y position based on screen size
-            const randomAngle = Math.random() * 80; // Random deg between 0-80
-
-            const bodyType = Math.random() > 0.7 ? "rectangle" : "rectangle";
 
             return (
               <MatterBody
                 angle={randomAngle}
                 key={index}
                 matterBodyOptions={{ friction: 0.7, restitution: 0.5 }}
-                bodyType={bodyType}
+                bodyType="rectangle"
                 x={`${randomX}%`}
                 y={`${randomY}%`}>
-                <div className={`skillset_icon ${bodyType === "circle" ? "circle" : "rectangle"}`}>
+                <div className="skillset_icon">
                   <Icon size={IconData.size} />
                 </div>
               </MatterBody>
