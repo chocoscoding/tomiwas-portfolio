@@ -63,7 +63,6 @@ export default function Preview() {
         trigger: skillRef.current,
         start: "top-=8% center",
         end: "top+=10% center",
-        markers: true,
         onEnter: () => {
           gsap.to(split2.words, {
             duration: 0.5,

@@ -293,7 +293,7 @@
 }
 
 .skillset {
-  overflow: hidden;
+  height: fit-content;
   &_section {
     width: 100%;
     height: 100vh;
@@ -318,7 +318,7 @@
     color: var(--text);
     font-size: 3rem;
     font-weight: 600;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
   }
 
   &_gravity {
