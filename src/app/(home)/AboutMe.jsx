@@ -18,21 +18,21 @@ const AboutMe = () => {
   useGSAP(
     () => {
       const tlForHand = gsap.timeline();
-      var split = new SplitText(pTagRef.current, { type: "chars" });
+      var split = new SplitText(pTagRef.current, { type: "lines", linesClass: "aboutLine" });
       gsap.fromTo(
-        split.chars,
+        split.lines,
         {
-          filter: "blur(10px) brightness(25%)",
-          willChange: "filter",
+          y: 200,
+          opacity: 0,
         },
         {
-          ease: "none",
-          filter: "blur(0px) brightness(100%)",
-          stagger: 0.06,
+          y: 0,
+          opacity: 1,
+          stagger: 0.02,
           scrollTrigger: {
             trigger: mainRef.current,
             start: "center bottom",
-            end: "center center-=30%",
+            end: "4%",
             scrub: true,
           },
         }

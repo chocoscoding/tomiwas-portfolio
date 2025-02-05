@@ -19,7 +19,6 @@
   transform: scaleX(0);
   transform-origin: left;
 }
-
 .home {
   width: 100%;
   overflow: hidden;
@@ -30,48 +29,47 @@
   width: 100%;
   display: grid;
   place-items: center;
+  .middleLine {
+    width: 100%;
+    height: 40%;
+    max-height: 400px;
+    background: var(--text);
+    /* display: none; */
+    .middleLine h3 {
+      font-family: "ImpostureGrotesk";
+      font-weight: 800;
+      font-size: 14rem;
+      color: black;
+      will-change: transform;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+    .miniLogo {
+      color: var(--text);
+      position: relative;
+      overflow: hidden;
+      width: 50vw;
+      min-width: 290px;
+      max-width: 300px;
+      height: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p {
+        color: var(--text);
+        font-size: 13rem;
+        font-family: "ImpostureGrotesk";
+        font-weight: 700;
+        position: relative;
+        transform: translateY(-300px);
+        will-change: transform;
+      }
+    }
+  }
 }
-.main .middleLine {
-  width: 100%;
-  height: 40%;
-  max-height: 400px;
-  background: var(--text);
-  /* display: none; */
-}
-.main .middleLine .middleLine h3 {
-  font-family: "ImpostureGrotesk";
-  font-weight: 800;
-  font-size: 14rem;
-  color: black;
-  will-change: transform;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-}
-.main .middleLine .miniLogo {
-  color: var(--text);
-  position: relative;
-  overflow: hidden;
-  width: 50vw;
-  min-width: 290px;
-  max-width: 300px;
-  height: 220px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.main .middleLine .miniLogo p {
-  color: var(--text);
-  font-size: 13rem;
-  font-family: "ImpostureGrotesk";
-  font-weight: 700;
-  position: relative;
-  transform: translateY(-300px);
-  will-change: transform;
-}
-
 .top-section {
   width: 100%;
   overflow: hidden;
@@ -79,7 +77,6 @@
   position: relative;
   z-index: 3;
 }
-
 .home-page {
   position: absolute;
   top: 0;
@@ -109,52 +106,52 @@
   max-width: 1600px;
   margin: auto;
   z-index: 2;
-}
-.hero-title .line {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  z-index: 1;
-  position: relative;
-}
-.hero-title .line h2 {
-  font-size: 4vw;
-  margin-top: 0.6rem;
-  margin-bottom: 0.6rem;
-  font-style: italic;
-  font-weight: 200;
-}
-.hero-title .line2 {
-  overflow: hidden !important;
-  max-height: 80px;
-}
-.hero-title .line2 .changing_career_cont {
-  justify-content: center;
-}
-.hero-title .line2 .changing_career_cont .changing_career {
-  font-size: 3vw;
-  font-style: italic;
-  font-weight: 200;
-  user-select: none;
-}
-.hero-title h1 {
-  font-family: "ImpostureGrotesk";
-  font-weight: 800;
-  font-size: 14vw;
-  position: relative;
-  transform: translateY(240px);
-  will-change: transform;
-  line-height: 120%;
-  z-index: 2;
-}
-.hero-title h2 {
-  transform: translateY(290px);
-  will-change: transform;
-}
+  .line {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    z-index: 1;
+    position: relative;
+    h2 {
+      font-size: 4vw;
+      margin-top: 0.6rem;
+      margin-bottom: 0.6rem;
+      font-style: italic;
+      font-weight: 200;
+    }
+  }
+  .line2 {
+    overflow: hidden !important;
+    max-height: 80px;
 
+    .changing_career_cont {
+      justify-content: center;
+      .changing_career {
+        font-size: 3vw;
+        font-style: italic;
+        font-weight: 200;
+        user-select: none;
+      }
+    }
+  }
+
+  h1 {
+    font-family: "ImpostureGrotesk";
+    font-weight: 800;
+    font-size: 14vw;
+    position: relative;
+    transform: translateY(240px);
+    will-change: transform;
+    line-height: 120%;
+    z-index: 2;
+  }
+  h2 {
+    transform: translateY(290px);
+    will-change: transform;
+  }
+}
 .h1_1 {
   text-align: left;
   margin-left: 7%;
 }
-
 .h1_2 {
   text-align: right;
   margin-right: 5%;
@@ -168,13 +165,11 @@
   transform: translateY(20px);
   will-change: transform;
 }
-
 .skill-slide {
   font-size: 2rem;
   line-height: 50px;
   color: var(--text);
 }
-
 @media screen and (max-width: 1000px) {
   .hero-title h1 {
     font-size: 20vw;
@@ -188,6 +183,7 @@
     margin-right: 0%;
   }
 }
+
 .particleCont {
   opacity: 0;
   width: 100%;
@@ -207,14 +203,12 @@
 .aboutWrapper {
   position: relative;
 }
-
 .aboutme {
   padding: 5rem;
   height: 80vh;
   max-height: 900px;
   overflow: hidden;
 }
-
 @media screen and (max-width: 1000px) {
   .aboutme p {
     margin-top: 2rem !important;
@@ -248,7 +242,8 @@
 }
 
 @keyframes wave-animation {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0deg);
   }
   50% {
@@ -262,10 +257,12 @@
   padding: 2px;
   border-radius: 10px;
 }
-
 .aboutme p .specialText {
   font-family: "ImpostureGrotesk";
   font-style: italic;
+}
+
+.aboutLine {
 }
 
 /* skillset */
@@ -319,13 +316,11 @@
   opacity: 0;
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
 }
-
 .skillset-section h2:hover {
   background-color: var(--text);
   color: var(--bg);
   transition: 0.2 all ease;
 }
-
 .skillset-section .header.line {
   width: 60%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -349,5 +344,4 @@
   background-color: var(--text);
   border: none;
 }
-
 /* ------------- */
