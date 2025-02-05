@@ -29,12 +29,12 @@ const AboutMe = () => {
         {
           y: 0,
           opacity: 1,
-          stagger: 0.02,
+          stagger: 0.06,
           ease: "power4.out",
           scrollTrigger: {
             trigger: mainRef.current,
             start: "center bottom",
-            end: "4%",
+            end: "5%",
             scrub: true,
           },
         }

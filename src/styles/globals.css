@@ -198,3 +198,22 @@ a {
     font-size: 14px;
   }
 }
+
+.absolute {
+  position: absolute;
+}
+.pointer-event-none {
+  pointer-events: none;
+}
+top-0 {
+  top: 0;
+}
+left-0 {
+  left: 0;
+}
+w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
+}

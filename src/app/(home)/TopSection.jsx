@@ -25,7 +25,9 @@ const TopSection = ({ showPreloader }) => {
 
   useGSAP(
     () => {
-      const tlMain = gsap.timeline({});
+      const tlMain = gsap.timeline({
+        ease: "power4.out",
+      });
 
       tlMain.to([".hero-title .line h1"], {
         y: 0,
@@ -35,7 +37,7 @@ const TopSection = ({ showPreloader }) => {
       });
       tlMain.to(particleContainerRef.current, { opacity: 1, ease: "expo.in" }, ">-1");
 
-      gsap.to([".hero-title .line h1"], {
+      tlMain.to([".hero-title .line h1"], {
         scale: 0.9,
         scrollTrigger: {
           trigger: containerRef.current,
