@@ -7,8 +7,7 @@ import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { cvItems } from "./cvItems";
-// import { SplitText } from "gsap/SplitText";
-import SplitType from "../lib/SplitType/index";
+import { SplitText } from "gsap/SplitText";
 
 const AboutPage = () => {
   const container = useRef();
@@ -27,7 +26,7 @@ const AboutPage = () => {
     const applySplitType = (element) => {
       const splitTexts = element.querySelectorAll("h1, h2, h3");
       splitTexts.forEach((text) => {
-        const split = new SplitType(text, {
+        const split = new SplitText(text, {
           types: "lines",
           tag: "span",
         });
