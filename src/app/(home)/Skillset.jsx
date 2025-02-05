@@ -109,7 +109,7 @@ export default function Preview() {
             const randomX = col * incrementAmount; // Increment x position
             const Icon = IconData.icon;
             // const randomX = Math.random() * 60 + 20; // Random x between 20-80%
-            const randomY = Math.random() * 20 + 35; // Random y between 5-25%
+            const randomY = Math.random() * 20 + 5; // Random y between 5-25%
             const randomAngle = Math.random() * 80; // Random deg between 0-40
 
             const bodyType = Math.random() > 0.7 ? "rectangle" : "rectangle";

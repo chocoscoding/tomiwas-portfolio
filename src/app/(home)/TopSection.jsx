@@ -32,7 +32,7 @@ const TopSection = ({ showPreloader }) => {
       tlMain.to([".hero-title .line h1"], {
         y: 0,
         stagger: 0.08,
-        delay: showPreloader ? 2.3 : 1,
+        delay: showPreloader ? 1 : 1,
         duration: 1,
       });
       tlMain.to(particleContainerRef.current, { opacity: 1, ease: "expo.in" }, ">-1");
