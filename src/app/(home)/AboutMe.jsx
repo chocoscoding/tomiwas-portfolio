@@ -37,6 +37,16 @@ const AboutMe = () => {
           },
         }
       );
+
+      gsap.to("aboutme", {
+        scale: 0.9,
+        scrollTrigger: {
+          trigger: "aboutWrapper",
+          start: "center bottom",
+          markers: true,
+          scrub: true,
+        },
+      });
     },
     { scope: mainRef.current }
   );

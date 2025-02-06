@@ -202,7 +202,7 @@ a {
 .absolute {
   position: absolute;
 }
-.pointer-event-none {
+.pointer-events-none {
   pointer-events: none;
 }
 top-0 {

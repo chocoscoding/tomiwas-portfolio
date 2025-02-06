@@ -1,4 +1,4 @@
-import { Framer, Html, Css, Webflow, Figma } from "../../components/Icons";
+import { Framer, Html, Css, Webflow, Figma, Xd, Photoshop, Ai, An, Ae, Blender } from "../../components/Icons";
 import { Microscope, Globe, Laptop, Rocket, PaintRoller, Eye, ScanFace, PersonStanding, Sun } from "lucide-react";
 import Gravity, { MatterBody } from "../../components/physics/Gravity";
 import { useLayoutEffect, useRef, useState, useEffect } from "react";
@@ -26,7 +26,7 @@ export default function Preview() {
       });
       ScrollTrigger.create({
         trigger: skillRef.current,
-        start: "top-=15% center",
+        start: "top-=20% center",
         end: "top+=10% center",
         onEnter: () => {
           gsap.to(split2.words, {
@@ -44,13 +44,13 @@ export default function Preview() {
   );
 
   const icons = [
-    { icon: Microscope, size: 24 },
-    { icon: Globe, size: 24 },
-    { icon: Laptop, size: 24 },
-    { icon: Rocket, size: 24 },
-    { icon: PaintRoller, size: 24 },
+    { icon: Xd, size: 24 },
+    { icon: Photoshop, size: 24 },
+    { icon: Ai, size: 24 },
+    { icon: An, size: 24 },
+    { icon: Ae, size: 24 },
     { icon: Eye, size: 24 },
-    { icon: ScanFace, size: 24 },
+    { icon: Blender, size: 24 },
     { icon: PersonStanding, size: 24 },
     { icon: Sun, size: 24 },
     { icon: Framer, size: 24 },
@@ -83,20 +83,29 @@ export default function Preview() {
 
       <div className="skillset_container">
         <Gravity autoStart={start} gravity={{ x: 0, y: 1 }} resetOnResize className="skillset_gravity">
+          <MatterBody
+            isDraggable={true}
+            matterBodyOptions={{ friction: 1, restitution: 0.1, angle: 0 }}
+            bodyType="rectangle"
+            x={`${50}%`}
+            y={`${15}%`}
+            angle={0}>
+            <div className="skillset_icon circle image">
+              <img src="/thomz.jpg" alt="main image" />
+            </div>
+          </MatterBody>
           {icons.map((IconData, index) => {
-            const { incrementAmount, itemsPerRow, isLargeScreen } = layoutConfig;
-            const row = Math.floor(index / itemsPerRow);
-            const col = index % itemsPerRow;
-            const randomX = col * incrementAmount;
-            const randomY = isLargeScreen ? row * 20 + Math.random() * 10 + 20 : row * 30 + Math.random() * 10 + 30;
-            const randomAngle = Math.random() * 80;
+            const randomX = Math.random() * 60 + 20; // Random x between 20-80%
+            const randomY = Math.random() * 20 + 50; // Random y between 5-25%
+            // const randomAngle = Math.random() * 80;
             const Icon = IconData.icon;
 
             return (
               <MatterBody
-                angle={randomAngle}
+                // angle={randomAngle}
                 key={index}
-                matterBodyOptions={{ friction: 0.7, restitution: 0.5 }}
+                isDraggable={false}
+                matterBodyOptions={{ friction: 0.7, restitution: 0.5, frictionAir: 0.05 }}
                 bodyType="rectangle"
                 x={`${randomX}%`}
                 y={`${randomY}%`}>

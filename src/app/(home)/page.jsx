@@ -13,7 +13,7 @@ import AboutMe from "./AboutMe";
 import Skillset from "./Skillset";
 import { SplitText } from "gsap/SplitText";
 
-let isInitialLoad = true;
+let isInitialLoad = false;
 
 const Home = () => {
   const preloaderRef = useRef(null);
@@ -49,20 +49,20 @@ const Home = () => {
     { dependencies: [showPreloader] }
   );
 
-  useGSAP(
-    () => {
-      if (showPreloader) {
-        const tl = gsap.timeline({});
-        tl.to(".miniLogo p", {
-          stagger: 0.18,
-          y: 0,
-          duration: 1.5,
-          ease: "power3.out",
-        });
-      }
-    },
-    { scope: preloaderRef.current, dependencies: [showPreloader] }
-  );
+  // useGSAP(
+  //   () => {
+  //     if (showPreloader) {
+  //       const tl = gsap.timeline({});
+  //       tl.to(".miniLogo p", {
+  //         stagger: 0.18,
+  //         y: 0,
+  //         duration: 1.5,
+  //         ease: "power3.out",
+  //       });
+  //     }
+  //   },
+  //   { scope: preloaderRef.current, dependencies: [showPreloader] }
+  // );
 
   return (
     <main className="home">
@@ -78,6 +78,7 @@ const Home = () => {
       )}
       <TopSection showPreloader={showPreloader} />
       <AboutMe />
+      <br />
       <Skillset />
     </main>
   );

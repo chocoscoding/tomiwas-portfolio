@@ -347,11 +347,21 @@
   background: #1a1818;
   box-shadow: inset -5px -5px 10px #1a1818, inset 5px 5px 10px #221e1e;
 }
+.skillset_icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.skillset_icon.image {
+  overflow: hidden;
+  padding: 0.3rem;
+}
 .skillset_icon.circle {
   border-radius: 50%;
 }
 .skillset_icon.rectangle {
-  border-radius: 1rem;
+  border-radius: 2rem;
 }
 
 .h1_line {
@@ -364,4 +374,8 @@
 /* ------------- */
 .skillH2 {
   overflow: hidden;
+}
+
+.circle {
+  border-radius: 50%;
 }
