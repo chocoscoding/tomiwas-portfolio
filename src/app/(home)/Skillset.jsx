@@ -1,4 +1,4 @@
-import { Framer, Html, Css, Webflow, Figma, Xd, Photoshop, Ai, An, Ae, Blender } from "../../components/Icons";
+import { Framer, Html, Css, Webflow, Figma, Xd, Photoshop, Ai, An, Ae, Blender, Canva, Rive } from "../../components/Icons";
 import { Microscope, Globe, Laptop, Rocket, PaintRoller, Eye, ScanFace, PersonStanding, Sun } from "lucide-react";
 import Gravity, { MatterBody } from "../../components/physics/Gravity";
 import { useLayoutEffect, useRef, useState, useEffect } from "react";
@@ -49,10 +49,9 @@ export default function Preview() {
     { icon: Ai, size: 24 },
     { icon: An, size: 24 },
     { icon: Ae, size: 24 },
-    { icon: Eye, size: 24 },
     { icon: Blender, size: 24 },
-    { icon: PersonStanding, size: 24 },
-    { icon: Sun, size: 24 },
+    { icon: Canva, size: 24 },
+    { icon: Rive, size: 24 },
     { icon: Framer, size: 24 },
     { icon: Html, size: 24 },
     { icon: Css, size: 24 },
@@ -85,27 +84,26 @@ export default function Preview() {
         <Gravity autoStart={start} gravity={{ x: 0, y: 1 }} resetOnResize className="skillset_gravity">
           <MatterBody
             isDraggable={true}
-            matterBodyOptions={{ friction: 1, restitution: 0.1, angle: 0 }}
-            bodyType="rectangle"
+            matterBodyOptions={{ friction: 1, restitution: 0.2, angle: 0, density: 0.009 }}
+            bodyType="circle"
             x={`${50}%`}
             y={`${15}%`}
             angle={0}>
-            <div className="skillset_icon circle image">
+            <div className="skillset_icon circle image ">
               <img src="/thomz.jpg" alt="main image" />
             </div>
           </MatterBody>
           {icons.map((IconData, index) => {
-            const randomX = Math.random() * 60 + 20; // Random x between 20-80%
-            const randomY = Math.random() * 20 + 50; // Random y between 5-25%
+            const randomX = Math.random() * 5 + 45; // Random x between 20-80%
+            const randomY = Math.random() * 1 + 53; // Random y between 5-25%
             // const randomAngle = Math.random() * 80;
             const Icon = IconData.icon;
 
             return (
               <MatterBody
-                // angle={randomAngle}
                 key={index}
-                isDraggable={false}
-                matterBodyOptions={{ friction: 0.7, restitution: 0.5, frictionAir: 0.05 }}
+                isDraggable={true}
+                matterBodyOptions={{ friction: 0.7, restitution: 0.5, frictionAir: 0.05, density: 0.01, angle: 0 }}
                 bodyType="rectangle"
                 x={`${randomX}%`}
                 y={`${randomY}%`}>

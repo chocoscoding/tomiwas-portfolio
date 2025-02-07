@@ -10,6 +10,7 @@ import CustomEase from "gsap/CustomEase";
 import dynamic from "next/dynamic";
 import TopSection from "./TopSection";
 import AboutMe from "./AboutMe";
+import Projects from "./Projects";
 import Skillset from "./Skillset";
 import { SplitText } from "gsap/SplitText";
 
@@ -80,6 +81,8 @@ const Home = () => {
       <AboutMe />
       <br />
       <Skillset />
+      <br />
+      <Projects />
     </main>
   );
 };

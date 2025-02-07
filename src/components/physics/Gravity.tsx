@@ -85,7 +85,6 @@ export const MatterBody = ({
 
     return () => context.unregisterElement(idRef.current);
   }, [props, children, matterBodyOptions, isDraggable]);
-  console.log(isDraggable);
 
   return (
     <div ref={elementRef} className={cn("absolute", className, isDraggable && "pointer-events-none")}>
