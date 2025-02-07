@@ -30,7 +30,7 @@ const Projects = () => {
           ease: "power4.out",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "top-=50px bottom",
+            start: "top+=40px bottom",
             end: "5% center",
             scrub: true,
           },

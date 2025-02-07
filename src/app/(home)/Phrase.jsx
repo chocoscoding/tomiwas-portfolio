@@ -5,16 +5,16 @@ const Phrase = ({ text, src, id }) => {
   return (
     <div className={"phrases"}>
       <div className={"phrase"} id={id}>
-        {Array(22)
+        {Array(20)
           .fill(0)
-          .map(() => (
-            <>
+          .map((_, i) => (
+            <div key={`phrase${i}`}>
               <p className="">{text}</p>
 
               <span className="">
                 <img style={{ objectFit: "cover" }} src={src} alt="image" />
               </span>
-            </>
+            </div>
           ))}
       </div>
     </div>

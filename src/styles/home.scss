@@ -313,12 +313,16 @@
 
   &_title,
   h2 {
+    * {
+      font-family: "ImpostureGrotesk" !important;
+    }
     text-align: left;
     display: flex;
     justify-content: start;
     color: var(--text);
     font-weight: 600;
-    font-size: 4rem;
+    padding-left: 5%;
+    font-size: 5rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
