@@ -93,4 +93,16 @@ const services = [
     image: "/assets/img4.jpg",
     alt: "IT Consultancy",
   },
+  {
+    title1: "Flexible Dash",
+    title2: "Design",
+    image: "/assets/img1.jpg",
+    alt: "Web Development",
+  },
+  {
+    title1: "Athena",
+    title2: "Brand Identity",
+    image: "/assets/img2.jpg",
+    alt: "App Development",
+  },
 ];
