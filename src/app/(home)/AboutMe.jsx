@@ -38,12 +38,11 @@ const AboutMe = () => {
         }
       );
 
-      gsap.to("aboutme", {
+      gsap.to(".aboutme", {
         scale: 0.9,
         scrollTrigger: {
-          trigger: "aboutWrapper",
+          trigger: ".aboutWrapper",
           start: "center bottom",
-          markers: true,
           scrub: true,
         },
       });

@@ -28,15 +28,28 @@ export default function Preview() {
         trigger: skillRef.current,
         start: "top-=20% center",
         end: "top+=10% center",
-        onEnter: () => {
-          gsap.to(split2.words, {
-            duration: 0.5,
-            stagger: 0.05,
-            y: 0,
-          });
-        },
         onLeave: () => {
           setStart(true);
+        },
+      });
+      gsap.to(split2.words, {
+        scrollTrigger: {
+          trigger: skillRef.current,
+          start: "top-=20 bottom",
+          end: "top+=10% center",
+          scrub: true,
+        },
+        duration: 0.5,
+        stagger: 0.05,
+        y: -5,
+      });
+
+      gsap.to(".skillset_container", {
+        scale: 0.9,
+        scrollTrigger: {
+          trigger: ".skillset_section",
+          start: "center bottom",
+          scrub: true,
         },
       });
     },
@@ -103,7 +116,7 @@ export default function Preview() {
               <MatterBody
                 key={index}
                 isDraggable={true}
-                matterBodyOptions={{ friction: 0.7, restitution: 0.5, frictionAir: 0.05, density: 0.01, angle: 0 }}
+                matterBodyOptions={{ friction: 0.7, restitution: 0.5, frictionAir: 0.05, density: 0.03, angle: 0 }}
                 bodyType="rectangle"
                 x={`${randomX}%`}
                 y={`${randomY}%`}>

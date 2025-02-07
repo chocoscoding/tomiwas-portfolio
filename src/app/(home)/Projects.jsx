@@ -30,10 +30,9 @@ const Projects = () => {
           ease: "power4.out",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "top bottom",
+            start: "top-=50px bottom",
             end: "5% center",
             scrub: true,
-            markers: true,
           },
         }
       );
@@ -47,7 +46,7 @@ const Projects = () => {
         },
       });
     },
-    { scope: mainRef.current }
+    { scope: mainRef }
   );
   return (
     <section className="projects" ref={mainRef}>
@@ -65,32 +64,32 @@ export default Projects;
 
 const services = [
   {
-    title1: "Jomor",
+    title1: "Flexible Dash",
     title2: "Design",
     image: "/assets/img1.jpg",
     alt: "Web Development",
   },
   {
-    title1: "Jomor",
-    title2: "Design",
+    title1: "Athena",
+    title2: "Brand Identity",
     image: "/assets/img2.jpg",
     alt: "App Development",
   },
   {
     title1: "Jomor",
-    title2: "Design",
+    title2: "UI/UX",
     image: "/assets/img3.jpg",
     alt: "Digital Marketing",
   },
   {
-    title1: "Jomor",
-    title2: "Design",
+    title1: "Esczpionade",
+    title2: "Fatchar Ers",
     image: "/assets/img4.jpg",
     alt: "Cloud Solutions",
   },
   {
-    title1: "Jomor",
-    title2: "Design",
+    title1: "ChocosCoding",
+    title2: "Website",
     image: "/assets/img4.jpg",
     alt: "IT Consultancy",
   },

@@ -103,7 +103,7 @@
   transform: translate(-50%, -50%);
   width: 100%;
   text-align: center;
-  max-width: 1600px;
+  max-width: 1700px;
   margin: auto;
   z-index: 2;
   .line {
@@ -320,6 +320,9 @@
     font-size: 3rem;
     font-weight: 600;
     // margin-bottom: 1rem;
+    * {
+      font-family: "ImpostureGrotesk" !important;
+    }
   }
 
   &_gravity {
@@ -394,16 +397,19 @@
     margin-bottom: 1rem;
   }
   &_heading {
-    border: 1px solid red;
-    text-align: center;
+    * {
+      font-family: "ImpostureGrotesk" !important;
+    }
+    text-align: left;
     width: 100%;
-    margin-bottom: 4rem;
+    font-size: 5rem;
+    margin-bottom: 5rem;
   }
 
   &_card {
-    border-top: 2px solid #fff8db77;
-    padding-top: 0.8vw;
-    padding-bottom: 0.8vw;
+    border-top: 2px solid #fff8db12;
+    padding-top: 0.7vw;
+    padding-bottom: 0.7vw;
     cursor: pointer;
     width: 100%;
     display: flex;
@@ -412,7 +418,8 @@
 
     p {
       color: var(--text);
-      font-size: 3rem;
+      opacity: 0.9;
+      font-size: 5rem;
       margin: 0px;
       &:nth-of-type(1) {
         margin-right: 0.55vw;
@@ -420,8 +427,12 @@
       &:nth-of-type(2) {
         margin-left: 0.55vw;
       }
-      &:last-of-type {
+      @media screen and (min-width: 1400px) {
+        font-size: 4rem;
       }
+    }
+    &:last-of-type {
+      border-bottom: 2px solid #fff8db12;
     }
 
     .imgContainer {
@@ -458,4 +469,99 @@
 
 .bg-white {
   background-color: white;
+}
+
+/*--------------------------*/
+.slides {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  &_container {
+    width: 100%;
+    height: auto;
+
+    .phrases {
+      padding: 0 2rem;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+
+      .phrase {
+        padding: 0 2rem;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        transform: translateX(-50%);
+
+        p {
+          flex-shrink: 0;
+          font-size: 7.5vw;
+          font-family: "ImpostureGrotesk";
+          color: var(--text);
+        }
+        span {
+          flex-shrink: 0;
+          position: relative;
+          height: 6.5vw;
+          aspect-ratio: 4/1.5;
+          overflow: hidden;
+          border-radius: 30rem;
+          object-fit: cover;
+          img {
+            display: inline-flex;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ----------- */
+.footer {
+  &_container {
+    position: relative;
+    height: 500px;
+    background-color: var(--text);
+    color: black;
+    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+
+    &_nested {
+      position: fixed;
+      height: 500px;
+      bottom: 0;
+      width: 100%;
+    }
+    &_sticky_container {
+      height: 500px;
+      position: sticky;
+      top: calc(100vh - 500px);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      .big {
+        font-family: "ImpostureGrotesk" !important;
+        font-size: 20rem;
+        color: #000;
+        font-weight: 900;
+        line-height: 18rem;
+      }
+      .normal {
+        color: #000;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+  }
 }

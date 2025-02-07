@@ -1,10 +1,10 @@
 "use client";
-import { useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 const anim = {
   initial: { width: 0 },
-  open: { width: "auto", transition: { duration: 0.9, ease: "easeOut" } },
+  open: { width: "auto", transition: { duration: 0.5, ease: "easeInOut" } },
   closed: { width: 0 },
 };
 
@@ -32,4 +32,4 @@ const ServiceCard = (props) => {
     </div>
   );
 };
-export default ServiceCard;
+export default memo(ServiceCard);
