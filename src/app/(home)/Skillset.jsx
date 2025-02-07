@@ -9,6 +9,7 @@ import { SplitText } from "gsap/SplitText";
 
 export default function Preview() {
   const skillRef = useRef(null);
+  const skillWrapperRef = useRef(null);
   const [start, setStart] = useState(false);
   const [layoutConfig, setLayoutConfig] = useState({ incrementAmount: 0, itemsPerRow: 0, isLargeScreen: false });
 
@@ -53,7 +54,7 @@ export default function Preview() {
         },
       });
     },
-    { scope: skillRef.current }
+    { scope: skillWrapperRef }
   );
 
   const icons = [
@@ -90,43 +91,45 @@ export default function Preview() {
   }, []);
 
   return (
-    <section className="skillset_section" ref={skillRef}>
-      <h2 className="skillset_title">My skills</h2>
+    <section ref={skillWrapperRef}>
+      <div className="skillset_section" ref={skillRef}>
+        <h2 className="skillset_title">My skills</h2>
 
-      <div className="skillset_container">
-        <Gravity autoStart={start} gravity={{ x: 0, y: 1 }} resetOnResize className="skillset_gravity">
-          <MatterBody
-            isDraggable={true}
-            matterBodyOptions={{ friction: 1, restitution: 0.2, angle: 0, density: 0.009 }}
-            bodyType="circle"
-            x={`${50}%`}
-            y={`${15}%`}
-            angle={0}>
-            <div className="skillset_icon circle image ">
-              <img src="/thomz.jpg" alt="main image" />
-            </div>
-          </MatterBody>
-          {icons.map((IconData, index) => {
-            const randomX = Math.random() * 5 + 45; // Random x between 20-80%
-            const randomY = Math.random() * 1 + 53; // Random y between 5-25%
-            // const randomAngle = Math.random() * 80;
-            const Icon = IconData.icon;
+        <div className="skillset_container">
+          <Gravity autoStart={start} gravity={{ x: 0, y: 1 }} resetOnResize className="skillset_gravity">
+            <MatterBody
+              isDraggable={true}
+              matterBodyOptions={{ friction: 1, restitution: 0.2, angle: 0, density: 0.009 }}
+              bodyType="circle"
+              x={`${50}%`}
+              y={`${15}%`}
+              angle={0}>
+              <div className="skillset_icon circle image ">
+                <img src="/thomz.jpg" alt="main image" />
+              </div>
+            </MatterBody>
+            {icons.map((IconData, index) => {
+              const randomX = Math.random() * 5 + 45; // Random x between 20-80%
+              const randomY = Math.random() * 1 + 53; // Random y between 5-25%
+              // const randomAngle = Math.random() * 80;
+              const Icon = IconData.icon;
 
-            return (
-              <MatterBody
-                key={index}
-                isDraggable={true}
-                matterBodyOptions={{ friction: 0.7, restitution: 0.5, frictionAir: 0.05, density: 0.03, angle: 0 }}
-                bodyType="rectangle"
-                x={`${randomX}%`}
-                y={`${randomY}%`}>
-                <div className="skillset_icon">
-                  <Icon size={IconData.size} />
-                </div>
-              </MatterBody>
-            );
-          })}
-        </Gravity>
+              return (
+                <MatterBody
+                  key={index}
+                  isDraggable={true}
+                  matterBodyOptions={{ friction: 0.7, restitution: 0.5, frictionAir: 0.05, density: 0.03, angle: 0 }}
+                  bodyType="rectangle"
+                  x={`${randomX}%`}
+                  y={`${randomY}%`}>
+                  <div className="skillset_icon">
+                    <Icon size={IconData.size} />
+                  </div>
+                </MatterBody>
+              );
+            })}
+          </Gravity>
+        </div>
       </div>
     </section>
   );

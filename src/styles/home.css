@@ -497,17 +497,22 @@
 .slides_container .phrases .phrase {
   padding: 0 2rem;
   display: flex;
-  gap: 2rem;
   align-items: center;
   transform: translateX(-50%);
 }
-.slides_container .phrases .phrase p {
+.slides_container .phrases .phrase div {
+  gap: 2rem;
+  align-items: center;
+  display: inline-flex;
+}
+.slides_container .phrases .phrase div p {
+  margin-left: 2rem;
   flex-shrink: 0;
   font-size: 7.5vw;
   font-family: "ImpostureGrotesk";
   color: var(--text);
 }
-.slides_container .phrases .phrase span {
+.slides_container .phrases .phrase div span {
   flex-shrink: 0;
   position: relative;
   height: 6.5vw;
@@ -516,7 +521,7 @@
   border-radius: 30rem;
   object-fit: cover;
 }
-.slides_container .phrases .phrase span img {
+.slides_container .phrases .phrase div span img {
   display: inline-flex;
 }
 

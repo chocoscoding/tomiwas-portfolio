@@ -23,15 +23,15 @@ const Slide = () => {
     };
 
     gsap.to("#phrase2", {
-      x: -1500,
+      x: 1300,
       scrollTrigger: scrollTigger1,
     });
     gsap.to("#phrase1", {
-      x: 1500,
+      x: -2000,
       scrollTrigger: scrollTigger1,
     });
     gsap.to("#phrase3", {
-      x: -800,
+      x: -1300,
       scrollTrigger: scrollTigger1,
     });
   });
@@ -39,9 +39,9 @@ const Slide = () => {
   return (
     <section className="slides">
       <div className="slides_container">
-        <Phrase id={"phrase1"} text={`LET'S`} src={"/assets/img1.jpg"} />
-        <Phrase id={"phrase2"} text={`WORK`} src={"/assets/img1.jpg"} />
-        <Phrase id={"phrase3"} text={`TOGETHER`} src={"/assets/img1.jpg"} />
+        <Phrase id={"phrase1"} text={`LET'S`} src={"/assets/lets.gif"} />
+        <Phrase id={"phrase2"} text={`WORK`} src={"/assets/work.gif"} />
+        <Phrase id={"phrase3"} text={`TOGETHER`} src={"/assets/together.gif"} />
       </div>
     </section>
   );

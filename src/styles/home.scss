@@ -494,26 +494,30 @@
       .phrase {
         padding: 0 2rem;
         display: flex;
-        gap: 2rem;
         align-items: center;
         transform: translateX(-50%);
-
-        p {
-          flex-shrink: 0;
-          font-size: 7.5vw;
-          font-family: "ImpostureGrotesk";
-          color: var(--text);
-        }
-        span {
-          flex-shrink: 0;
-          position: relative;
-          height: 6.5vw;
-          aspect-ratio: 4/1.5;
-          overflow: hidden;
-          border-radius: 30rem;
-          object-fit: cover;
-          img {
-            display: inline-flex;
+        div {
+          gap: 2rem;
+          align-items: center;
+          display: inline-flex;
+          p {
+            margin-left: 2rem;
+            flex-shrink: 0;
+            font-size: 7.5vw;
+            font-family: "ImpostureGrotesk";
+            color: var(--text);
+          }
+          span {
+            flex-shrink: 0;
+            position: relative;
+            height: 6.5vw;
+            aspect-ratio: 4/1.5;
+            overflow: hidden;
+            border-radius: 30rem;
+            object-fit: cover;
+            img {
+              display: inline-flex;
+            }
           }
         }
       }

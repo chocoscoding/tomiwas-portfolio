@@ -5,14 +5,14 @@ const Phrase = ({ text, src, id }) => {
   return (
     <div className={"phrases"}>
       <div className={"phrase"} id={id}>
-        {Array(20)
+        {Array(30)
           .fill(0)
           .map((_, i) => (
             <div key={`phrase${i}`}>
               <p className="">{text}</p>
 
               <span className="">
-                <img style={{ objectFit: "cover" }} src={src} alt="image" />
+                <img loading="eager" style={{ objectFit: "cover" }} src={src} alt="image" />
               </span>
             </div>
           ))}

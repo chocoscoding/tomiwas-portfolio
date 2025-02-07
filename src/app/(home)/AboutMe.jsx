@@ -9,6 +9,7 @@ import { SplitText } from "gsap/SplitText";
 
 const AboutMe = () => {
   const mainRef = useRef(null);
+  const wrapperRef = useRef(null);
   const pTagRef = useRef(null);
 
   useLayoutEffect(() => {
@@ -47,10 +48,10 @@ const AboutMe = () => {
         },
       });
     },
-    { scope: mainRef.current }
+    { scope: wrapperRef }
   );
   return (
-    <main className="aboutWrapper">
+    <main className="aboutWrapper" ref={wrapperRef}>
       <section className="aboutme" ref={mainRef}>
         <p ref={pTagRef}>
           Hi!<span className="wave">👋</span> <br /> My name is Ayotomiwa Solarin, but you can call me{" "}
