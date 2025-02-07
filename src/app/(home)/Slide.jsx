@@ -23,7 +23,7 @@ const Slide = () => {
     };
 
     gsap.to("#phrase2", {
-      x: 1300,
+      x: 1000,
       scrollTrigger: scrollTigger1,
     });
     gsap.to("#phrase1", {
