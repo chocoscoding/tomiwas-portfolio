@@ -27,7 +27,7 @@ const TopSection = ({ showPreloader }) => {
     () => {
       const tlMain = gsap.timeline({
         ease: "power4.out",
-        delay: showPreloader ? 2.3 : 1,
+        // delay: showPreloader ? 2.3 : 1,
       });
 
       tlMain.to([".hero-title .line h1"], {
@@ -47,7 +47,7 @@ const TopSection = ({ showPreloader }) => {
         },
       });
     },
-    { scope: topSectionRef, dependencies: [showPreloader] }
+    { scope: topSectionRef }
   );
 
   return (

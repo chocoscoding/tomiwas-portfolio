@@ -317,16 +317,14 @@
 }
 .skillset_title,
 .skillset h2 {
-  text-align: center;
+  text-align: left;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   color: var(--text);
-  font-size: 3rem;
   font-weight: 600;
-}
-.skillset_title *,
-.skillset h2 * {
-  font-family: "ImpostureGrotesk" !important;
+  font-size: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 .skillset_gravity {
   width: 100%;
