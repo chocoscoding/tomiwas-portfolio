@@ -1,9 +1,7 @@
 import "../styles/globals.css";
 import "../styles/home.css";
-import localFont from "next/font/local";
-
 import Menu from "../components/Menu/Menu";
-
+import CustomCursor from "../components/CustomCursor";
 export const metadata = {
   title: "Ayotomiwa Solarin",
   description: "Solarin Ayotomiwa - Creative",
@@ -14,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div className="father">
+          <CustomCursor />
           <SmoothScrolling>
             <Menu />
             {children}

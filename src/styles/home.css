@@ -214,34 +214,61 @@
   max-height: 900px;
   overflow: hidden;
 }
-
 @media screen and (max-width: 1000px) {
-  .aboutme p {
-    margin-top: 2rem !important;
+  .aboutme {
+    padding: 2.5rem;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .aboutme {
-    padding: 0.5rem;
+    padding: 1.5rem;
+    max-height: 600px;
   }
-  .aboutme p {
-    margin-top: 2rem !important;
+}
+@media screen and (max-width: 450px) {
+  .aboutme {
+    padding: 1rem;
   }
 }
 .aboutme p {
   margin-top: 3rem;
   font-weight: 300;
   line-height: 120%;
-  font-size: clamp(1.1rem, -0.775rem + 6vw, 2.6rem);
+  font-size: clamp(1.3rem, 0.9362rem + 1.7638vw, 2.7rem);
   color: var(--text);
   text-wrap: initial;
 }
-
 .aboutme p .wave {
   font-size: 50%;
   overflow: hidden;
   display: inline-flex;
   animation: wave-animation 1s infinite;
+}
+@media screen and (max-width: 600px) {
+  .aboutme p .wave {
+    font-size: 1.5rem;
+  }
+}
+.aboutme p .nameWrapper {
+  /* display: inline-flex; */
+  background: transparent;
+  color: var(--text);
+  padding: 2px;
+  border-radius: 10px;
+}
+.aboutme p .specialText {
+  font-family: "ImpostureGrotesk";
+  font-style: italic;
+}
+@media screen and (max-width: 1000px) {
+  .aboutme p {
+    margin-top: 2rem !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .aboutme p {
+    margin-top: 2rem !important;
+  }
 }
 
 @keyframes wave-animation {
@@ -252,19 +279,6 @@
     transform: rotate(20deg);
   }
 }
-.aboutme p .nameWrapper {
-  /* display: inline-flex; */
-  background: transparent;
-  color: var(--text);
-  padding: 2px;
-  border-radius: 10px;
-}
-
-.aboutme p .specialText {
-  font-family: "ImpostureGrotesk";
-  font-style: italic;
-}
-
 .aboutLine {
   position: relative;
   overflow: hidden;
@@ -306,6 +320,11 @@
   padding: 1%;
   margin-bottom: 5rem;
 }
+@media screen and (max-width: 764px) {
+  .skillset_section {
+    max-height: 500px;
+  }
+}
 .skillset_container {
   width: 100%;
   height: 100%;
@@ -319,11 +338,11 @@
 .skillset h2 {
   text-align: left;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   color: var(--text);
   font-weight: 600;
   padding-left: 5%;
-  font-size: 5rem;
+  font-size: clamp(2.1rem, 1.3465rem + 3.6535vw, 5rem);
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
@@ -340,8 +359,8 @@
   z-index: 10;
 }
 .skillset_icon {
-  height: 140px !important;
-  width: 140px !important;
+  height: 160px !important;
+  width: 160px !important;
   margin: 0.1rem;
   padding: 1rem;
   border: 1px solid var(--border-color);
@@ -364,14 +383,39 @@
   margin: 0.01rem;
   overflow: hidden;
   padding: 0.3rem;
-  width: 160px !important;
-  height: 160px !important;
+  width: 180px !important;
+  height: 180px !important;
+}
+@media screen and (max-width: 1000px) {
+  .skillset_icon.image {
+    width: 160px !important;
+    height: 160px !important;
+  }
+}
+@media screen and (max-width: 764px) {
+  .skillset_icon.image {
+    width: 110px !important;
+    height: 110px !important;
+  }
 }
 .skillset_icon.circle {
   border-radius: 50%;
 }
 .skillset_icon.rectangle {
   border-radius: 2rem;
+}
+@media screen and (max-width: 1000px) {
+  .skillset_icon {
+    width: 140px !important;
+    height: 140px !important;
+  }
+}
+@media screen and (max-width: 764px) {
+  .skillset_icon {
+    width: 90px !important;
+    height: 90px !important;
+    border-radius: 25px;
+  }
 }
 
 .h1_line {
@@ -403,7 +447,7 @@
 .projects_heading {
   text-align: left;
   width: 100%;
-  font-size: 5rem;
+  font-size: clamp(2.1rem, 1.3465rem + 3.6535vw, 5rem);
   margin-bottom: 5rem;
 }
 .projects_heading * {
@@ -421,20 +465,15 @@
 }
 .projects_card p {
   color: var(--text);
+  font-weight: 400;
   opacity: 0.9;
-  font-size: 5rem;
-  margin: 0px;
+  font-size: clamp(1.8rem, 0.9905rem + 3.8095vw, 4.8rem);
 }
 .projects_card p:nth-of-type(1) {
   margin-right: 0.55vw;
 }
 .projects_card p:nth-of-type(2) {
   margin-left: 0.55vw;
-}
-@media screen and (min-width: 1400px) {
-  .projects_card p {
-    font-size: 4rem;
-  }
 }
 .projects_card:last-of-type {
   border-bottom: 2px solid rgba(255, 248, 219, 0.0705882353);
@@ -512,6 +551,11 @@
   font-family: "ImpostureGrotesk";
   color: var(--text);
 }
+@media screen and (max-width: 500px) {
+  .slides_container .phrases .phrase div p {
+    font-size: 4rem;
+  }
+}
 .slides_container .phrases .phrase div span {
   flex-shrink: 0;
   position: relative;
@@ -523,6 +567,12 @@
 }
 .slides_container .phrases .phrase div span img {
   display: inline-flex;
+}
+@media screen and (max-width: 500px) {
+  .slides {
+    margin-top: 5rem;
+    margin-bottom: 0;
+  }
 }
 
 /* ----------- */
@@ -540,6 +590,7 @@
   width: 100%;
 }
 .footer_container_sticky_container {
+  padding: 0.5rem;
   height: 500px;
   position: sticky;
   top: calc(100vh - 500px);
@@ -550,10 +601,24 @@
 }
 .footer_container_sticky_container .big {
   font-family: "ImpostureGrotesk" !important;
-  font-size: 20rem;
   color: #000;
   font-weight: 900;
-  line-height: 18rem;
+  line-height: 16rem;
+  font-size: 20rem;
+  margin-top: 4rem;
+}
+@media screen and (max-width: 1050px) {
+  .footer_container_sticky_container .big {
+    margin-top: 1rem;
+    font-size: 28vw;
+    line-height: 22vw;
+  }
+}
+@media screen and (max-width: 764px) {
+  .footer_container_sticky_container .big {
+    font-size: 28vw;
+    line-height: 22vw;
+  }
 }
 .footer_container_sticky_container .normal {
   color: #000;
@@ -563,6 +628,11 @@
   list-style-type: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+.footer_container_sticky_container ul li > .button {
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
 }
