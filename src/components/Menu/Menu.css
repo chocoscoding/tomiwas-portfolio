@@ -8,6 +8,7 @@
   background-color: #161616;
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
   pointer-events: none;
+  justify-content: center;
   z-index: 10;
 }
 
@@ -38,6 +39,10 @@
   position: relative;
   transform: translateY(60px);
   will-change: transform;
+}
+.menu .link-wrapper h1 {
+  font-family: "ImpostureGrotesk" !important;
+  font-size: clamp(3.125rem, 2.6997rem + 2.0619vw, 4.375rem);
 }
 
 .menu .socials {

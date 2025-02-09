@@ -229,12 +229,18 @@ w-full {
 .app_cursor {
   z-index: 1000;
   border-radius: 100%;
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
   background-color: #fff8db;
   mix-blend-mode: difference;
   position: fixed;
   pointer-events: none;
   overflow: hidden;
   transform: translate3d(0, 0, 0);
+}
+
+@media screen and (max-width: 500px) {
+  .app_cursor {
+    display: none;
+  }
 }

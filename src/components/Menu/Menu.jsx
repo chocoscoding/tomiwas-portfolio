@@ -1,15 +1,9 @@
 "use client";
-import {
-  useEffect,
-  useState,
-  useCallback,
-  useRef,
-  useLayoutEffect,
-} from "react";
+import { useEffect, useState, useCallback, useRef, useLayoutEffect } from "react";
 import Link from "next/link";
 import "./Menu.css";
 import MenuBar from "../MenuBar/MenuBar";
-import { links, socials, address, contactInfo } from "./menuContent";
+import { links } from "./menuContent";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -24,10 +18,7 @@ const Menu = () => {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(CustomEase);
-    CustomEase.create(
-      "hop",
-      "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1"
-    );
+    CustomEase.create("hop", "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1");
   }, []);
 
   useGSAP(
@@ -148,43 +139,7 @@ const Menu = () => {
       <MenuBar isOpen={isOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
 
       <div className="menu" ref={menuRef}>
-        <div className="col col-1">
-          <div className="socials">
-            <div className="sub-col">
-              {address.map((line, index) => (
-                <div className="line" key={index}>
-                  <p>{line}</p>
-                </div>
-              ))}
-              <br />
-              {contactInfo.slice(0, 2).map((line, index) => (
-                <div className="line" key={index}>
-                  <p>{line}</p>
-                </div>
-              ))}
-            </div>
-            <div className="sub-col">
-              {socials.map((social, index) => (
-                <div className="line" key={index}>
-                  <p>
-                    <a
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {social.label}
-                    </a>
-                  </p>
-                </div>
-              ))}
-              <br />
-              <div className="line">
-                <p>{contactInfo[2]}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col col-2">
+        <div className="col">
           <div className="links">
             {links.map((link, index) => (
               <div className="link" key={index}>

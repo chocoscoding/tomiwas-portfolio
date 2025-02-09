@@ -553,7 +553,7 @@
 }
 @media screen and (max-width: 500px) {
   .slides_container .phrases .phrase div p {
-    font-size: 4rem;
+    font-size: 4.5rem;
   }
 }
 .slides_container .phrases .phrase div span {
@@ -567,6 +567,11 @@
 }
 .slides_container .phrases .phrase div span img {
   display: inline-flex;
+}
+@media screen and (max-width: 500px) {
+  .slides_container .phrases .phrase div span {
+    height: 3rem;
+  }
 }
 @media screen and (max-width: 500px) {
   .slides {

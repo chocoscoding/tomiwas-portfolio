@@ -534,7 +534,7 @@
             font-family: "ImpostureGrotesk";
             color: var(--text);
             @media screen and (max-width: 500px) {
-              font-size: 4rem;
+              font-size: 4.5rem;
             }
           }
           span {
@@ -547,6 +547,9 @@
             object-fit: cover;
             img {
               display: inline-flex;
+            }
+            @media screen and (max-width: 500px) {
+              height: 3rem;
             }
           }
         }

@@ -2,7 +2,7 @@ button {
   color: currentColor;
 }
 
-.button {
+.button2 {
   align-items: center;
   background: 0 0;
   border: none;
@@ -22,16 +22,17 @@ button {
   text-decoration: none;
   word-break: break-word;
   text-decoration: none;
+  background-color: var(--text);
 }
 
 @media (hover: hover) {
-  .button.button--stroke:hover {
+  .button2.button--stroke2:hover {
     color: var(--text);
     text-decoration: none;
   }
 }
 
-.button--stroke:after {
+.button--stroke2:after {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -39,8 +40,8 @@ button {
   top: 0;
 }
 
-.button--stroke:after {
-  border: 0.125rem solid black;
+.button--stroke2:after {
+  border: 0.125rem solid var(--text);
   border-radius: 6.25rem;
   content: "";
   pointer-events: none;
@@ -51,7 +52,7 @@ button {
   text-align: center;
   transition: color 50ms cubic-bezier(0.175, 0.79, 0.38, 0.905);
 }
-.button--stroke:hover .button__label {
+.button--stroke2:hover .button__label {
   transition: color 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
@@ -64,7 +65,7 @@ button {
   top: 0;
 }
 
-.button--stroke .button__flair {
+.button--stroke2 .button__flair {
   transform: scale(0);
   transform-origin: 0 0;
   will-change: transform;
@@ -89,7 +90,7 @@ button {
     display: none;
   }
   @media (hover: hover) {
-    .button.button--stroke:hover {
+    .button2.button--stroke2:hover {
       background-color: black;
     }
   }

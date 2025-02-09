@@ -4,6 +4,8 @@ import "./contact.css";
 
 import { gsap } from "gsap";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import Button2 from "../../components/Main/Button2";
+import Skewwer from "../../components/Main/TextSkew";
 
 const Page = () => {
   const container = useRef();
@@ -35,75 +37,32 @@ const Page = () => {
   }, []);
 
   return (
-    <ReactLenis root>
-      <div className="contact-page" ref={container}>
-        <div className="container">
-          <div className="col">
-            <div className="where" ref={(el) => (sectionsRef.current[0] = el)}>
-              <div className="title">
-                <p>Where</p>
-              </div>
-              <div className="item">
-                <p>Spazio Alva</p>
-              </div>
-              <div className="item">
-                <p>Vicolo Terrà, 5 VR/B</p>
-              </div>
-              <div className="item">
-                <p>37129 . Verona . Italy</p>
-              </div>
-            </div>
-            <div className="vat" ref={(el) => (sectionsRef.current[1] = el)}>
-              <div className="title">
-                <p>VAT</p>
-              </div>
-              <div className="item">
-                <p>9724865620</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="col">
-            <div className="contact-header">
-              <h1 ref={headerRef}>Contact</h1>
-            </div>
-            <div
-              className="socials"
-              ref={(el) => (sectionsRef.current[2] = el)}
-            >
-              <div className="title">
-                <p>Socials</p>
-              </div>
-              <div className="item">
-                <p>
-                  <a href="#">Instagram</a>
-                </p>
-              </div>
-              <div className="item">
-                <p>
-                  <a href="#">LinkedIn</a>
-                </p>
-              </div>
-              <div className="item">
-                <p>
-                  <a href="#">Vimeo</a>
-                </p>
-              </div>
-            </div>
-            <div className="mail" ref={(el) => (sectionsRef.current[3] = el)}>
-              <div className="title">
-                <p>Mail</p>
-              </div>
-              <div className="item">
-                <p>
-                  <a href="#">contact@codegrid.com</a>
-                </p>
-              </div>
-            </div>
-          </div>
+    <div className="contact-page" ref={container}>
+      <div className="container">
+        <div className="footer_container_sticky_container">
+          <br />
+          <Skewwer perspective={1000}>
+            <p className="big">CONTACT</p>
+          </Skewwer>
+          <br />
+          <p className="normal">{`Let's build something awesome like never before`}</p>
+          <ul>
+            <li>
+              <Button2>Mail: chocoscoding@gmail.com</Button2>
+            </li>
+            <li>
+              <Button2>LinkedIn</Button2>
+            </li>
+            <li>
+              <Button2>Instagram</Button2>
+            </li>
+            <li>
+              <Button2>X/Twitter</Button2>
+            </li>
+          </ul>
         </div>
       </div>
-    </ReactLenis>
+    </div>
   );
 };
 
