@@ -10,7 +10,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
         <MenuBtn isOpen={isOpen} toggleMenu={toggleMenu} />
       </div>
 
-      <div className="logo" onClick={closeMenu}>
+      <div className="logo cursor-pointer" onClick={closeMenu}>
         <Link href="/">SA</Link>
       </div>
 

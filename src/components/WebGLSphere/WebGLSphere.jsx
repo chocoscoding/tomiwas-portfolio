@@ -1,12 +1,10 @@
 "use client";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, CameraShake, CameraControls, ScrollControls, Scroll, useScroll } from "@react-three/drei";
-import { useControls, button } from "leva";
 import Particles from "../Particles/Particles";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useMemo, useCallback } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { MathUtils } from "three";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function WebGLSphere() {
@@ -16,17 +14,21 @@ export default function WebGLSphere() {
     </Canvas>
   );
 }
-function WebGLSphereMain() {
-  const propsProd = {
-    focus: 5.7,
-    speed: 35,
-    aperture: 9.3,
-    fov: 190,
-    curl: 0.19,
-    size: 512,
-  };
-  const controlsHook = useThree((state) => state.camera);
 
+function WebGLSphereMain() {
+  const propsProd = useMemo(
+    () => ({
+      focus: 5.7,
+      speed: 35,
+      aperture: 9.3,
+      fov: 190,
+      curl: 0.19,
+      size: 512,
+    }),
+    []
+  );
+
+  const controlsHook = useThree((state) => state.camera);
   const controls = useRef();
   const zRef = useRef({
     z: 6,
@@ -37,6 +39,7 @@ function WebGLSphereMain() {
   useFrame(() => {
     controlsHook.position.set(0, zRef.current.y, zRef.current.z);
   });
+
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
   }, []);
@@ -50,21 +53,21 @@ function WebGLSphereMain() {
         start: "5% top",
         end: "30% top",
         scrub: true,
-        // pin: ".topsection",
       },
     });
-  }, []);
+  });
 
-  const particleSize = (e) => {
+  const particleSize = useCallback((e) => {
     if (e.target.innerWidth < 600) {
       zRef.current.z = 6.3;
       zRef.current.zEnd = 7.6;
     }
-  };
+  }, []);
+
   useEffect(() => {
     window.addEventListener("resize", particleSize);
     return () => window.removeEventListener("resize", particleSize);
-  }, []);
+  }, [particleSize]);
 
   return (
     <>

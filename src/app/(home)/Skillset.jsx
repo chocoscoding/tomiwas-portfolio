@@ -96,7 +96,7 @@ export default function Preview() {
         <h2 className="skillset_title">My skills</h2>
 
         <div className="skillset_container">
-          <Gravity autoStart={start} gravity={{ x: 0, y: 1 }} resetOnResize className="skillset_gravity">
+          <Gravity addTopWall autoStart={start} gravity={{ x: 0, y: 1 }} resetOnResize className="skillset_gravity">
             <MatterBody
               isDraggable={true}
               matterBodyOptions={{ friction: 1, restitution: 0.2, angle: 0, density: 0.009 }}
@@ -118,7 +118,7 @@ export default function Preview() {
                 <MatterBody
                   key={index}
                   isDraggable={true}
-                  matterBodyOptions={{ friction: 0.7, restitution: 0.5, frictionAir: 0.05, density: 0.03, angle: 0 }}
+                  matterBodyOptions={{ friction: 0.7, restitution: 0.2, frictionAir: 0.05, density: 0.03, angle: 0 }}
                   bodyType="rectangle"
                   x={`${randomX}%`}
                   y={`${randomY}%`}>

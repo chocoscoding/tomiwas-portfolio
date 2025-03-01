@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const anim = {
   initial: { width: 0 },
-  open: { width: "auto", transition: { duration: 0.5, ease: "easeInOut" } },
+  open: { width: "auto", transition: { duration: 0.3, ease: "easeOut" } },
   closed: { width: 0 },
 };
 

@@ -23,6 +23,15 @@ const CustomCursor = () => {
     if (window.innerWidth >= 760) {
       document.addEventListener("mousemove", handleMouseMove);
       requestRef.current = requestAnimationFrame(animateCursor);
+
+      document.querySelectorAll("a, .cursor-pointer").forEach((el) => {
+        el.addEventListener("mousemove", () => {
+          cursorRef.current.classList.add("cursor-active");
+        });
+        el.addEventListener("mouseleave", () => {
+          cursorRef.current.classList.remove("cursor-active");
+        });
+      });
     }
 
     return () => {
@@ -31,11 +40,7 @@ const CustomCursor = () => {
     };
   }, []);
 
-  return (
-    <div className="app_cursor" ref={cursorRef}>
-      CustomCursor
-    </div>
-  );
+  return <div className="app_cursor" ref={cursorRef}></div>;
 };
 
 export default CustomCursor;

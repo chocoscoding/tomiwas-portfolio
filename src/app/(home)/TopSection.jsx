@@ -19,21 +19,19 @@ const TopSection = ({ showPreloader }) => {
   const particleContainerRef = useRef(null);
 
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, CustomEase, SplitText);
+    gsap.registerPlugin(ScrollTrigger, CustomEase);
     CustomEase.create("hop", "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1");
   }, []);
 
   useGSAP(
     () => {
-      const tlMain = gsap.timeline({
-        ease: "power4.out",
-        // delay: showPreloader ? 2.3 : 1,
-      });
+      const tlMain = gsap.timeline();
 
       tlMain.to([".hero-title .line h1"], {
         y: 0,
+        ease: "expo.out",
         stagger: 0.08,
-        duration: 1,
+        duration: 1.6,
       });
       tlMain.to(particleContainerRef.current, { opacity: 1, ease: "expo.in" }, ">-1");
 
