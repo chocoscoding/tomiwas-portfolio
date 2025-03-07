@@ -1,6 +1,7 @@
 import AnimatedCursor from "react-animated-cursor";
 
 const CustomCursor = () => {
+  return null;
   return (
     <AnimatedCursor
       color="#fff8db"
