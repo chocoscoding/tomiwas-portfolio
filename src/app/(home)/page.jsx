@@ -13,7 +13,7 @@ import AboutMe from "./AboutMe";
 import Slide from "./Slide";
 import Projects from "./Projects";
 import Skillset from "./Skillset";
-import Footer from "./Footer";
+import Footer from "../../components/Footer";
 import { SplitText } from "gsap/SplitText";
 
 let isInitialLoad = false;
