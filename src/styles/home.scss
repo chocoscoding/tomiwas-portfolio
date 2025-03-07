@@ -4,7 +4,8 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: var(--bgLighter);
+  // background-color: var(--bgLighter);
+  background-color: #161616;
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   z-index: 100000;
 }
@@ -29,44 +30,26 @@
   width: 100%;
   display: grid;
   place-items: center;
-  .middleLine {
-    width: 100%;
-    height: 40%;
-    max-height: 400px;
-    background: var(--text);
-    /* display: none; */
-    .middleLine h3 {
-      font-family: "ImpostureGrotesk";
-      font-weight: 800;
-      font-size: 14rem;
-      color: black;
-      will-change: transform;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-    }
-    .miniLogo {
+
+  .miniLogo {
+    color: var(--text);
+    position: relative;
+    overflow: hidden;
+    width: 50vw;
+    min-width: 290px;
+    max-width: 300px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
       color: var(--text);
+      font-size: 13rem;
+      font-family: "ImpostureGrotesk";
+      font-weight: 700;
       position: relative;
-      overflow: hidden;
-      width: 50vw;
-      min-width: 290px;
-      max-width: 300px;
-      height: 220px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      p {
-        color: var(--text);
-        font-size: 13rem;
-        font-family: "ImpostureGrotesk";
-        font-weight: 700;
-        position: relative;
-        transform: translateY(-300px);
-        will-change: transform;
-      }
+      transform: translateY(300px);
+      will-change: transform;
     }
   }
 }
@@ -129,6 +112,11 @@
         font-style: italic;
         font-weight: 200;
         user-select: none;
+
+        @media screen and (max-width: 500px) {
+          font-size: 1.5rem;
+          opacity: 0.8;
+        }
       }
     }
   }
@@ -183,6 +171,19 @@
     margin-right: 0%;
   }
 }
+@media screen and (max-width: 500px) {
+  .hero-title h1 {
+    font-size: 23vw;
+  }
+  .h1_1 {
+    text-align: center;
+    margin-left: 0%;
+  }
+  .h1_2 {
+    text-align: center;
+    margin-right: 0%;
+  }
+}
 
 .particleCont {
   opacity: 0;
@@ -221,11 +222,13 @@
   }
   p {
     margin-top: 3rem;
-    font-weight: 300;
-    line-height: 120%;
-    font-size: clamp(1.3rem, 0.9362rem + 1.7638vw, 2.7rem);
+    font-weight: 400;
+    font-size: clamp(1.4rem, 1.1rem + 1.7638vw, 2.7rem);
     color: var(--text);
     text-wrap: initial;
+    @media screen and (max-width: 600px) {
+      line-height: 105%;
+    }
 
     .wave {
       font-size: 50%;
@@ -312,6 +315,9 @@
     @media screen and (max-width: 764px) {
       max-height: 500px;
     }
+    @media screen and (max-width: 500px) {
+      max-height: 400px;
+    }
   }
   &_container {
     width: 100%;
@@ -337,6 +343,9 @@
     font-size: clamp(2.1rem, 1.3465rem + 3.6535vw, 5rem);
     margin-top: 2rem;
     margin-bottom: 2rem;
+    @media screen and (max-width: 500px) {
+      font-size: 4rem;
+    }
   }
 
   &_gravity {
@@ -384,6 +393,10 @@
         width: 110px !important;
         height: 110px !important;
       }
+      @media screen and (max-width: 500px) {
+        width: 90px !important;
+        height: 90px !important;
+      }
     }
     &.circle {
       border-radius: 50%;
@@ -399,6 +412,11 @@
       width: 90px !important;
       height: 90px !important;
       border-radius: 25px;
+    }
+    @media screen and (max-width: 500px) {
+      width: 80px !important;
+      height: 80px !important;
+      border-radius: 15px;
     }
   }
 }
@@ -435,7 +453,14 @@
     text-align: left;
     width: 100%;
     font-size: clamp(2.1rem, 1.3465rem + 3.6535vw, 5rem);
-    margin-bottom: 5rem;
+    margin-bottom: 11rem;
+    margin-top: 1.5rem;
+
+    @media screen and (max-width: 500px) {
+      margin-top: 0;
+      margin-bottom: 9rem;
+      font-size: 4rem;
+    }
   }
 
   &_card {
@@ -533,6 +558,9 @@
             font-size: 7.5vw;
             font-family: "ImpostureGrotesk";
             color: var(--text);
+            @media screen and (max-width: 1000px) {
+              font-size: 12vw;
+            }
             @media screen and (max-width: 500px) {
               font-size: 4.5rem;
             }
@@ -547,6 +575,9 @@
             object-fit: cover;
             img {
               display: inline-flex;
+            }
+            @media screen and (max-width: 1000px) {
+              height: 10vw;
             }
             @media screen and (max-width: 500px) {
               height: 3rem;

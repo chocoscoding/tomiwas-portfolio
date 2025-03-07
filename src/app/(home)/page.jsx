@@ -16,7 +16,7 @@ import Skillset from "./Skillset";
 import Footer from "../../components/Footer";
 import { SplitText } from "gsap/SplitText";
 
-let isInitialLoad = false;
+let isInitialLoad = true;
 
 const Home = () => {
   const preloaderRef = useRef(null);
@@ -30,7 +30,7 @@ const Home = () => {
 
   useEffect(() => {
     return () => {
-      isInitialLoad = false;
+      isInitialLoad = true;
     };
   }, []);
 
@@ -41,31 +41,29 @@ const Home = () => {
           onComplete: () => setShowPreloader(false),
         });
 
+        tl.to(".miniLogo p", {
+          stagger: 0.13,
+          y: 0,
+          duration: 1.1,
+          ease: "ease.in",
+        });
+        tl.to(".miniLogo p", {
+          delay: 1,
+          stagger: 0.14,
+          y: -400,
+          ease: "power3.in",
+          duration: 1.5,
+        });
         tl.to(preloaderRef.current, {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-          duration: 2,
-          delay: 1.5,
-          ease: "hop-main",
+          duration: 1.3,
+          delay: -1.2,
+          ease: "power1.in",
         });
       }
     },
     { dependencies: [showPreloader] }
   );
-
-  // useGSAP(
-  //   () => {
-  //     if (showPreloader) {
-  //       const tl = gsap.timeline({});
-  //       tl.to(".miniLogo p", {
-  //         stagger: 0.18,
-  //         y: 0,
-  //         duration: 1.5,
-  //         ease: "power3.out",
-  //       });
-  //     }
-  //   },
-  //   { scope: preloaderRef.current, dependencies: [showPreloader] }
-  // );
 
   return (
     <main className="home">

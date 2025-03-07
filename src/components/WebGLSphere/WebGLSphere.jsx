@@ -2,7 +2,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, CameraShake, CameraControls, ScrollControls, Scroll, useScroll } from "@react-three/drei";
 import Particles from "../Particles/Particles";
-import { useEffect, useLayoutEffect, useRef, useMemo, useCallback } from "react";
+import { useEffect, useLayoutEffect, useRef, useMemo, useCallback, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -30,44 +30,47 @@ function WebGLSphereMain() {
 
   const controlsHook = useThree((state) => state.camera);
   const controls = useRef();
-  const zRef = useRef({
-    z: 6,
+  const [zRef, setZRef] = useState({
+    z: 6.3,
     y: 0,
-    zEnd: 7,
+    zEnd: 7.3,
   });
-
-  useFrame(() => {
-    controlsHook.position.set(0, zRef.current.y, zRef.current.z);
-  });
-
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-  }, []);
-
-  useGSAP(() => {
-    gsap.to(zRef.current, {
-      z: zRef.current.zEnd,
-      ease: "power4.inOut",
-      scrollTrigger: {
-        trigger: ".topsection",
-        start: "5% top",
-        end: "30% top",
-        scrub: true,
-      },
-    });
-  });
-
   const particleSize = useCallback((e) => {
     if (e.target.innerWidth < 600) {
-      zRef.current.z = 6.3;
-      zRef.current.zEnd = 7.6;
+      setZRef((prev) => ({ ...prev, z: 10, zEnd: 11 }));
     }
   }, []);
 
   useEffect(() => {
+    if (window.innerWidth < 600) {
+      setZRef((prev) => ({ ...prev, z: 10, zEnd: 11 }));
+    }
+  }, []);
+  useEffect(() => {
     window.addEventListener("resize", particleSize);
     return () => window.removeEventListener("resize", particleSize);
   }, [particleSize]);
+
+  useFrame(() => {
+    controlsHook.position.set(0, zRef.y, zRef.z);
+  });
+
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to(zRef, {
+        z: zRef.zEnd,
+        ease: "power4.inOut",
+        scrollTrigger: {
+          trigger: ".topsection",
+          start: "5% top",
+          end: "30% top",
+          scrub: true,
+        },
+      });
+    },
+    { dependencies: [zRef] }
+  );
 
   return (
     <>

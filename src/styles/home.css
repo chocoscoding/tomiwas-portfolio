@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: var(--bgLighter);
+  background-color: #161616;
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   z-index: 100000;
 }
@@ -31,26 +31,7 @@
   display: grid;
   place-items: center;
 }
-.main .middleLine {
-  width: 100%;
-  height: 40%;
-  max-height: 400px;
-  background: var(--text);
-  /* display: none; */
-}
-.main .middleLine .middleLine h3 {
-  font-family: "ImpostureGrotesk";
-  font-weight: 800;
-  font-size: 14rem;
-  color: black;
-  will-change: transform;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-}
-.main .middleLine .miniLogo {
+.main .miniLogo {
   color: var(--text);
   position: relative;
   overflow: hidden;
@@ -62,13 +43,13 @@
   justify-content: center;
   align-items: center;
 }
-.main .middleLine .miniLogo p {
+.main .miniLogo p {
   color: var(--text);
   font-size: 13rem;
   font-family: "ImpostureGrotesk";
   font-weight: 700;
   position: relative;
-  transform: translateY(-300px);
+  transform: translateY(300px);
   will-change: transform;
 }
 
@@ -135,6 +116,12 @@
   font-weight: 200;
   user-select: none;
 }
+@media screen and (max-width: 500px) {
+  .hero-title .line2 .changing_career_cont .changing_career {
+    font-size: 1.5rem;
+    opacity: 0.8;
+  }
+}
 .hero-title h1 {
   font-family: "ImpostureGrotesk";
   font-weight: 800;
@@ -188,6 +175,19 @@
     margin-right: 0%;
   }
 }
+@media screen and (max-width: 500px) {
+  .hero-title h1 {
+    font-size: 23vw;
+  }
+  .h1_1 {
+    text-align: center;
+    margin-left: 0%;
+  }
+  .h1_2 {
+    text-align: center;
+    margin-right: 0%;
+  }
+}
 .particleCont {
   opacity: 0;
   width: 100%;
@@ -232,11 +232,15 @@
 }
 .aboutme p {
   margin-top: 3rem;
-  font-weight: 300;
-  line-height: 120%;
-  font-size: clamp(1.3rem, 0.9362rem + 1.7638vw, 2.7rem);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 1.1rem + 1.7638vw, 2.7rem);
   color: var(--text);
   text-wrap: initial;
+}
+@media screen and (max-width: 600px) {
+  .aboutme p {
+    line-height: 105%;
+  }
 }
 .aboutme p .wave {
   font-size: 50%;
@@ -272,8 +276,7 @@
 }
 
 @keyframes wave-animation {
-  0%,
-  100% {
+  0%, 100% {
     transform: rotate(0deg);
   }
   50% {
@@ -326,6 +329,11 @@
     max-height: 500px;
   }
 }
+@media screen and (max-width: 500px) {
+  .skillset_section {
+    max-height: 400px;
+  }
+}
 .skillset_container {
   width: 100%;
   height: 100%;
@@ -350,6 +358,12 @@
 .skillset_title *,
 .skillset h2 * {
   font-family: "ImpostureGrotesk" !important;
+}
+@media screen and (max-width: 500px) {
+  .skillset_title,
+  .skillset h2 {
+    font-size: 4rem;
+  }
 }
 .skillset_gravity {
   width: 100%;
@@ -399,6 +413,12 @@
     height: 110px !important;
   }
 }
+@media screen and (max-width: 500px) {
+  .skillset_icon.image {
+    width: 90px !important;
+    height: 90px !important;
+  }
+}
 .skillset_icon.circle {
   border-radius: 50%;
 }
@@ -416,6 +436,13 @@
     width: 90px !important;
     height: 90px !important;
     border-radius: 25px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .skillset_icon {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 15px;
   }
 }
 
@@ -449,10 +476,18 @@
   text-align: left;
   width: 100%;
   font-size: clamp(2.1rem, 1.3465rem + 3.6535vw, 5rem);
-  margin-bottom: 5rem;
+  margin-bottom: 11rem;
+  margin-top: 1.5rem;
 }
 .projects_heading * {
   font-family: "ImpostureGrotesk" !important;
+}
+@media screen and (max-width: 500px) {
+  .projects_heading {
+    margin-top: 0;
+    margin-bottom: 9rem;
+    font-size: 4rem;
+  }
 }
 .projects_card {
   border-top: 2px solid rgba(255, 248, 219, 0.0705882353);
@@ -552,6 +587,11 @@
   font-family: "ImpostureGrotesk";
   color: var(--text);
 }
+@media screen and (max-width: 1000px) {
+  .slides_container .phrases .phrase div p {
+    font-size: 12vw;
+  }
+}
 @media screen and (max-width: 500px) {
   .slides_container .phrases .phrase div p {
     font-size: 4.5rem;
@@ -568,6 +608,11 @@
 }
 .slides_container .phrases .phrase div span img {
   display: inline-flex;
+}
+@media screen and (max-width: 1000px) {
+  .slides_container .phrases .phrase div span {
+    height: 10vw;
+  }
 }
 @media screen and (max-width: 500px) {
   .slides_container .phrases .phrase div span {

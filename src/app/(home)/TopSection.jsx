@@ -25,7 +25,9 @@ const TopSection = ({ showPreloader }) => {
 
   useGSAP(
     () => {
-      const tlMain = gsap.timeline();
+      const tlMain = gsap.timeline({
+        delay: showPreloader ? "3.6" : "0.1",
+      });
 
       tlMain.to([".hero-title .line h1"], {
         y: 0,
@@ -33,7 +35,7 @@ const TopSection = ({ showPreloader }) => {
         stagger: 0.08,
         duration: 1.6,
       });
-      tlMain.to(particleContainerRef.current, { opacity: 1, ease: "expo.in" }, ">-1");
+      tlMain.to(particleContainerRef.current, { opacity: 1, ease: "ease" }, "=<");
 
       tlMain.to([".hero-title .line h1"], {
         scale: 0.9,
@@ -45,7 +47,7 @@ const TopSection = ({ showPreloader }) => {
         },
       });
     },
-    { scope: topSectionRef }
+    { scope: topSectionRef, dependencies: [showPreloader] }
   );
 
   return (

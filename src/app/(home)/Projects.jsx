@@ -5,7 +5,6 @@ import { SplitText } from "gsap/SplitText";
 import React, { useLayoutEffect, useRef } from "react";
 import ElasticLine from "../../components/physics/ElasticLine";
 import ServiceCard from "./ServiceCard";
-import ProjectsLists from "./ProjectsList";
 const Projects = () => {
   const mainRef = useRef(null);
   const projectHeadingRef = useRef(null);
@@ -54,10 +53,56 @@ const Projects = () => {
       <h2 ref={projectHeadingRef} className="projects_heading">
         Projects
       </h2>
-
-      <ProjectsLists />
+      {services.map((service, index) => (
+        <ServiceCard key={index} {...service} />
+      ))}
     </section>
   );
 };
 
 export default Projects;
+
+const services = [
+  {
+    title1: "Flexible Dash",
+    title2: "Design",
+    image: "/assets/img1.jpg",
+    alt: "Web Development",
+  },
+  {
+    title1: "Athena",
+    title2: "Brand Identity",
+    image: "/assets/img2.jpg",
+    alt: "App Development",
+  },
+  {
+    title1: "Jomor",
+    title2: "UI/UX",
+    image: "/assets/img3.jpg",
+    alt: "Digital Marketing",
+  },
+  {
+    title1: "Esczpionade",
+    title2: "Fatchar Ers",
+    image: "/assets/img4.jpg",
+    alt: "Cloud Solutions",
+  },
+  {
+    title1: "ChocosCoding",
+    title2: "Website",
+    image: "/assets/img4.jpg",
+    alt: "IT Consultancy",
+  },
+  {
+    title1: "Flexible Dash",
+    title2: "Design",
+    image: "/assets/img1.jpg",
+    alt: "Web Development",
+  },
+  {
+    title1: "Athena",
+    title2: "Brand Identity",
+    image: "/assets/img2.jpg",
+    alt: "App Development",
+  },
+];

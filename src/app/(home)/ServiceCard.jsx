@@ -4,10 +4,9 @@ import { motion } from "framer-motion";
 
 const anim = {
   initial: { width: 0 },
-  open: { width: "auto", transition: { duration: 0.3, ease: "easeOut" } },
+  open: { width: "auto", transition: { duration: 0.4, type: "spring", bounce: 0 } },
   closed: { width: 0 },
 };
-
 const ServiceCard = (props) => {
   const imageContainerRef = useRef(null);
   const { title1, title2, image } = props;
