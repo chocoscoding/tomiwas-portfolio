@@ -31,9 +31,9 @@ function WebGLSphereMain() {
   const controlsHook = useThree((state) => state.camera);
   const controls = useRef();
   const [zRef, setZRef] = useState({
-    z: 6.3,
+    z: 6.1,
     y: 0,
-    zEnd: 7.3,
+    zEnd: 7.1,
   });
   const particleSize = useCallback((e) => {
     if (e.target.innerWidth < 600) {

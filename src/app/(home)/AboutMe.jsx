@@ -35,6 +35,7 @@ const AboutMe = () => {
             trigger: mainRef.current,
             start: "center bottom",
             end: "5%",
+            scrub: true,
           },
         }
       );

@@ -47,7 +47,7 @@ const TopSection = ({ showPreloader }) => {
         },
       });
     },
-    { scope: topSectionRef, dependencies: [showPreloader] }
+    { scope: topSectionRef }
   );
 
   return (
