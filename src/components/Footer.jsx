@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "./Main/Button";
-import TextSkew from "./Main/TextSkew";
 import FooterWithParticle from "./blocks/Backgrounds/Particles2/Particles2";
 const Footer = () => {
   return (
@@ -21,16 +20,16 @@ const Footer = () => {
           <p className="normal">{`Let's build something awesome like never before`}</p>
           <ul>
             <li>
-              <Button>Mail: chocoscoding@gmail.com</Button>
+              <Button href="mailto:solarinthomz.st@gmail.com">Mail: solarinthomz.st@gmail.com</Button>
             </li>
             <li>
-              <Button>LinkedIn</Button>
+              <Button href="https://www.linkedin.com">LinkedIn</Button>
             </li>
             <li>
-              <Button>Instagram</Button>
+              <Button href="https://www.instagram.com">Instagram</Button>
             </li>
             <li>
-              <Button>X/Twitter</Button>
+              <Button href="https://www.twitter.com">X/Twitter</Button>
             </li>
           </ul>
         </div>

@@ -48,16 +48,16 @@ const Page = () => {
           <p className="normal">{`Let's build something awesome like never before`}</p>
           <ul>
             <li>
-              <Button2>Mail: chocoscoding@gmail.com</Button2>
+              <Button2 href="mailto:solarinthomz.st@gmail.com">Mail: solarinthomz.st@gmail.com</Button2>
             </li>
             <li>
-              <Button2>LinkedIn</Button2>
+              <Button2 href="https://www.linkedin.com">LinkedIn</Button2>
             </li>
             <li>
-              <Button2>Instagram</Button2>
+              <Button2 href="https://www.instagram.com">Instagram</Button2>
             </li>
             <li>
-              <Button2>X/Twitter</Button2>
+              <Button2 href="https://www.twitter.com">X/Twitter</Button2>
             </li>
           </ul>
         </div>

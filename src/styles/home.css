@@ -639,6 +639,7 @@
   height: 500px;
   bottom: 0;
   width: 100%;
+  max-width: 1700px;
 }
 .footer_container_sticky_container {
   padding: 0.5rem;

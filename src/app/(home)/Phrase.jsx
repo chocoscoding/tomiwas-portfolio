@@ -5,7 +5,7 @@ const Phrase = ({ text, src, id }) => {
   return (
     <div className={"phrases"}>
       <div className={"phrase"} id={id}>
-        {Array(30)
+        {Array(40)
           .fill(0)
           .map((_, i) => (
             <div key={`phrase${i}`}>

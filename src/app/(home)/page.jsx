@@ -42,7 +42,7 @@ const Home = () => {
         });
 
         tl.to(".miniLogo p", {
-          stagger: 0.13,
+          stagger: 0.125,
           y: 0,
           duration: 1.1,
           ease: "ease.in",
@@ -56,8 +56,8 @@ const Home = () => {
         });
         tl.to(preloaderRef.current, {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-          duration: 1.3,
-          delay: -1.2,
+          duration: 1,
+          delay: -0.8,
           ease: "power1.in",
         });
       }
@@ -85,8 +85,6 @@ const Home = () => {
       <Projects />
       <br />
       <Slide />
-      <br />
-      <Footer />
     </main>
   );
 };

@@ -1,7 +1,4 @@
-/*
-	Installed from https://reactbits.dev/default/
-*/
-
+"use client";
 import { Children, useEffect, useRef } from "react";
 import { Renderer, Camera, Geometry, Program, Mesh } from "ogl";
 

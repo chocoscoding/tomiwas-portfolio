@@ -1,9 +1,11 @@
+"use client";
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import "./button.css";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 
-const Button = ({ children }) => {
+const Button = ({ children, href, target }) => {
   const buttonRef = useRef(null);
   const flairRef = useRef(null);
 
@@ -77,11 +79,13 @@ const Button = ({ children }) => {
     };
   }, []);
 
+  const Element = href ? Link : "button";
+
   return (
-    <button className="button button--stroke" ref={buttonRef}>
+    <Element href={href} className="button button--stroke" ref={buttonRef} target={target}>
       <span className="button__flair" ref={flairRef}></span>
       <span className="button__label">{children}</span>
-    </button>
+    </Element>
   );
 };
 

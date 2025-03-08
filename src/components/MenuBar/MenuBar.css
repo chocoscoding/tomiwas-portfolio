@@ -15,7 +15,18 @@
   position: relative;
   flex: 1;
 }
-
+.menu-toggle-wrapper > *,
+.logo > *,
+.portfolio-year > * {
+  font-size: 1.1rem !important;
+}
+@media screen and (max-width: 500px) {
+  .menu-toggle-wrapper > *,
+  .logo > *,
+  .portfolio-year > * {
+    font-size: 0.9rem !important;
+  }
+}
 .logo {
   display: flex;
   justify-content: center;

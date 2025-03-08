@@ -15,7 +15,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
       </div>
 
       <div className="portfolio-year">
-        <p>&copy; 2024</p>
+        <p>&copy; {new Date().getFullYear()}</p>
       </div>
     </div>
   );

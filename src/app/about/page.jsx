@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { cvItems } from "./cvItems";
+import { cvItems, education } from "./cvItems";
 import { SplitText } from "gsap/SplitText";
 
 const AboutPage = () => {
@@ -23,61 +23,38 @@ const AboutPage = () => {
   useGSAP(() => {
     CustomEase.create("hop2", "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1");
 
-    const applySplitType = (element) => {
-      const splitTexts = element.querySelectorAll("h1, h2, h3");
-      splitTexts.forEach((text) => {
-        const split = new SplitText(text, {
-          types: "lines",
-          tag: "span",
-        });
-
-        split.lines.forEach((line) => {
-          const wrapper = document.createElement("div");
-          wrapper.className = "line-wrapper";
-          line.parentNode.insertBefore(wrapper, line);
-          wrapper.appendChild(line);
-        });
-      });
-    };
-
     if (aboutCopyRef.current) {
-      applySplitType(aboutCopyRef.current);
-      gsap.to(aboutCopyRef.current.querySelectorAll(".line-wrapper span"), {
-        y: 0,
-        stagger: 0.05,
-        delay: 1.5,
-        duration: 1.5,
-        ease: "power4.out",
-      });
-    }
-
-    if (cvHeaderRef.current) {
-      applySplitType(cvHeaderRef.current);
-    }
-
-    if (cvListRef.current) {
-      applySplitType(cvListRef.current);
+      new SplitText(".about-copy h3", { type: "lines", linesClass: "aboutLine" });
+      const split2 = new SplitText(".aboutLine", { type: "lines", linesClass: "aboutLine2" });
+      gsap.fromTo(
+        split2.lines,
+        {
+          y: 100,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          stagger: 0.05,
+          delay: 1,
+          duration: 1.5,
+          ease: "power4.out",
+        }
+      );
     }
 
     if (cvWrapperRef.current) {
-      const cvHeaderSpans = cvHeaderRef.current.querySelectorAll(".line-wrapper span");
-      const cvListSpans = cvListRef.current.querySelectorAll(".line-wrapper span");
+      new SplitText(".cv-item", { type: "lines", linesClass: "cvLine" });
+      const split2 = new SplitText(".cvLine", { type: "words", linesClass: "cvNamee" });
 
-      gsap.set([cvHeaderSpans, cvListSpans], { y: "100%" });
+      gsap.set([split2.words], { y: "100%" });
 
       ScrollTrigger.create({
         trigger: cvWrapperRef.current,
         start: "top 50%",
         onEnter: () => {
-          gsap.to(cvHeaderSpans, {
+          gsap.to(split2.words, {
             y: 0,
-            stagger: 0.05,
-            duration: 1.5,
-            ease: "power4.out",
-          });
-          gsap.to(cvListSpans, {
-            y: 0,
-            stagger: 0.02,
+            stagger: 0.01,
             duration: 1.5,
             ease: "power4.out",
           });
@@ -96,7 +73,7 @@ const AboutPage = () => {
           gsap.to(heroImgRef.current.querySelector("img"), {
             scale: scale,
             ease: "none",
-            duration: 0.1,
+            duration: 0.7,
           });
         },
       });
@@ -128,7 +105,7 @@ const AboutPage = () => {
         <div className="about-intro">
           <div className="col about-portrait-img">
             <div className="about-portrait">
-              <img src="/about/portrait-min.jpg" alt="Portrait" />
+              <img src="/main-image.png" loading="eager" alt="Portrait" />
             </div>
           </div>
           <div className="col about-copy-wrapper">
@@ -154,9 +131,29 @@ const AboutPage = () => {
         <img src="/about/portrait-2-min.jpg" alt="Portrait" />
       </div>
 
-      <div className="container">
+      <div className="">
         <div className="cv-wrapper" ref={cvWrapperRef}>
           <div className="cv-header" ref={cvHeaderRef}>
+            <h2>CV</h2>
+          </div>
+
+          <div className="cv-list" ref={cvListRef}>
+            {cvItems.map((item, index) => (
+              <div className="cv-item" key={index}>
+                <div className="cv-name">
+                  <h3>{item.name}</h3>
+                </div>
+                <div className="cv-year">
+                  <h3>{item.year}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="">
+        <div className="cv-wrapper">
+          <div className="cv-header">
             <h2>CV</h2>
           </div>
 

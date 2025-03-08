@@ -273,3 +273,27 @@ w-full {
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--text-darker);
 }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+}
+
+::view-transition-group {
+  z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  will-change: transform, opacity, clip-path;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 10000;
+  animation: none !important;
+}
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none !important;
+}

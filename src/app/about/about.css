@@ -6,7 +6,15 @@
 }
 
 .about-portrait-img {
+  overflow: hidden;
   flex: 1;
+  max-height: 450px;
+  border-radius: 10px;
+}
+.about-portrait-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .about-portrait {
@@ -18,13 +26,17 @@
 }
 
 .about-copy-wrapper h1 {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .about-copy-wrapper h3 {
   margin-bottom: 0.5em;
 }
 
+.cv-header > * {
+  letter-spacing: 3px;
+  font-family: "ImpostureGrotesk";
+}
 .about-intro .line-wrapper,
 .about-intro .about-copy-title,
 .cv-header .line-wrapper,
@@ -47,6 +59,7 @@
 }
 
 .about-intro .about-copy-title h1 {
+  font-family: ImpostureGrotesk;
   position: relative;
   transform: translateY(70px);
   will-change: transform;
@@ -63,15 +76,17 @@
   height: 75vh;
   overflow: hidden;
   margin: 8em 0;
+  border-radius: 10px;
 }
 
 .cv-wrapper {
   width: 85%;
-  margin: 0 auto 16em auto;
+  margin: 0 auto 8em auto;
 }
 
 .cv-wrapper .cv-header {
   margin-bottom: 2em;
+  font-family: ImpostureGrotesk;
 }
 
 .cv-item {
@@ -101,4 +116,17 @@
   .cv-wrapper {
     width: 100%;
   }
+}
+
+.aboutLine {
+  position: relative;
+  overflow: hidden;
+}
+.cvLine {
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutLine2 {
+  visibility: hidden;
 }

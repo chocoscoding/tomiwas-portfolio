@@ -2,8 +2,8 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import "./button2.css";
 import { useGSAP } from "@gsap/react";
-
-const Button = ({ children }) => {
+import Link from "next/link";
+const Button = ({ children, href, target }) => {
   const buttonRef = useRef(null);
   const flairRef = useRef(null);
 
@@ -77,11 +77,13 @@ const Button = ({ children }) => {
     };
   }, []);
 
+  const Element = href ? Link : "button";
+
   return (
-    <button className="button2 button--stroke2" ref={buttonRef}>
+    <Element href={href} className="button2 button--stroke2" ref={buttonRef} target={target}>
       <span className="button__flair" ref={flairRef}></span>
       <span className="button__label">{children}</span>
-    </button>
+    </Element>
   );
 };
 

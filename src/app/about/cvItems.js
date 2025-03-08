@@ -19,6 +19,8 @@ export const cvItems = [
     name: "Web Development Intern learning MERN stack at CodeCrafters",
     year: "2016 - 2017",
   },
+];
+export const education = [
   {
     name: "Bachelor of Science in Computer Science, Tech University - Thesis on AI in Web Development",
     year: "2013 - 2017",

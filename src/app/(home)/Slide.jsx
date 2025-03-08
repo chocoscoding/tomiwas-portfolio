@@ -23,15 +23,15 @@ const Slide = () => {
     };
 
     gsap.to("#phrase2", {
-      x: 1000,
+      x: 800,
       scrollTrigger: scrollTigger1,
     });
     gsap.to("#phrase1", {
-      x: -1900,
+      x: -1400,
       scrollTrigger: scrollTigger1,
     });
     gsap.to("#phrase3", {
-      x: -1400,
+      xPercent: -10,
       scrollTrigger: scrollTigger1,
     });
   });
