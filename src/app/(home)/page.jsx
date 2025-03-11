@@ -24,46 +24,41 @@ const Home = () => {
   const [showPreloader, setShowPreloader] = useState(isInitialLoad);
   let middleLineRef = useRef();
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
-  }, []);
-
   useEffect(() => {
     return () => {
       isInitialLoad = true;
     };
   }, []);
 
-  useGSAP(
-    () => {
-      if (showPreloader) {
-        const tl = gsap.timeline({
-          onComplete: () => setShowPreloader(false),
-        });
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
+    if (showPreloader) {
+      const tl = gsap.timeline({
+        onComplete: () => setShowPreloader(false),
+      });
 
-        tl.to(".miniLogo p", {
-          stagger: 0.125,
-          y: 0,
-          duration: 1.1,
-          ease: "ease.in",
-        });
-        tl.to(".miniLogo p", {
-          delay: 1,
-          stagger: 0.14,
-          y: -400,
-          ease: "power3.in",
-          duration: 1.5,
-        });
-        tl.to(preloaderRef.current, {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-          duration: 1,
-          delay: -0.8,
-          ease: "power1.in",
-        });
-      }
-    },
-    { dependencies: [showPreloader] }
-  );
+      tl.to(".miniLogo p", {
+        stagger: 0.125,
+        y: 0,
+        duration: 1.1,
+        ease: "ease.in",
+      });
+      tl.to(".miniLogo p", {
+        delay: 1,
+        opacity: 0.6,
+        stagger: 0.05,
+        y: -400,
+        ease: "ease.inOut",
+        duration: 1.4,
+      });
+      tl.to(preloaderRef.current, {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        duration: 1.8,
+        delay: -1.4,
+        ease: "ease",
+      });
+    }
+  }, {});
 
   return (
     <main className="home">

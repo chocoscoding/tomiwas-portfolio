@@ -18,15 +18,12 @@ const TopSection = ({ showPreloader }) => {
   const containerRef = useRef(null);
   const particleContainerRef = useRef(null);
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, CustomEase);
-    CustomEase.create("hop", "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1");
-  }, []);
-
   useGSAP(
     () => {
+      gsap.registerPlugin(ScrollTrigger, CustomEase);
+      CustomEase.create("hop", "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1");
       const tlMain = gsap.timeline({
-        delay: showPreloader ? "3.6" : "0.1",
+        delay: showPreloader ? "3.2" : "0.25",
       });
 
       tlMain.to([".hero-title .line h1"], {
@@ -35,8 +32,6 @@ const TopSection = ({ showPreloader }) => {
         stagger: 0.08,
         duration: 1.6,
       });
-      tlMain.to(particleContainerRef.current, { opacity: 1, ease: "ease" }, "=<");
-
       tlMain.to([".hero-title .line h1"], {
         scale: 0.9,
         scrollTrigger: {

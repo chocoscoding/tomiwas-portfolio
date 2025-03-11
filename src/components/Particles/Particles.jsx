@@ -14,7 +14,7 @@ export default function Particles({ speed, fov, aperture, focus, curl, size = 51
   const [scene] = useState(() => new Scene());
   const [camera] = useState(() => new OrthographicCamera(-1, 1, 1, -1, 1 / Math.pow(2, 53), 1));
   const [positions] = useState(() => new Float32Array([-1, -1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0]));
-  const [uvs] = useState(() => new Float32Array([0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0]));
+  const uvs = useRef(new Float32Array([0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0]));
   const target = useFBO(size, size, { minFilter: NearestFilter, magFilter: NearestFilter, format: RGBAFormat, type: FloatType });
   // Normalize points
   const particles = useMemo(() => {
@@ -52,7 +52,7 @@ export default function Particles({ speed, fov, aperture, focus, curl, size = 51
           <simulationMaterial ref={simRef} />
           <bufferGeometry>
             <bufferAttribute attach="attributes-position" count={positions.length / 3} array={positions} itemSize={3} />
-            <bufferAttribute attach="attributes-uv" count={uvs.length / 2} array={uvs} itemSize={2} />
+            <bufferAttribute attach="attributes-uv" count={uvs.current.length / 2} array={uvs.current} itemSize={2} />
           </bufferGeometry>
         </mesh>,
         scene

@@ -1,7 +1,6 @@
 import { Framer, Html, Css, Webflow, Figma, Xd, Photoshop, Ai, An, Ae, Blender, Canva, Rive } from "../../components/Icons";
-import { Microscope, Globe, Laptop, Rocket, PaintRoller, Eye, ScanFace, PersonStanding, Sun } from "lucide-react";
 import Gravity, { MatterBody } from "../../components/physics/Gravity";
-import { useLayoutEffect, useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,12 +12,9 @@ export default function Preview() {
   const [start, setStart] = useState(false);
   const [layoutConfig, setLayoutConfig] = useState({ incrementAmount: 0, itemsPerRow: 0, isLargeScreen: false });
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, SplitText);
-  }, []);
-
   useGSAP(
     () => {
+      gsap.registerPlugin(ScrollTrigger, SplitText);
       var split = new SplitText(".skillset_title", { type: "lines", linesClass: "skillH2" });
       var split2 = new SplitText(".skillH2", { type: "words" });
 

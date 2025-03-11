@@ -32,7 +32,10 @@ const Slide = () => {
     });
     gsap.to("#phrase3", {
       xPercent: -10,
-      scrollTrigger: scrollTigger1,
+      scrollTrigger: {
+        ...scrollTigger1,
+        scrub: 700, // Increase the scrub value to slow down the animation
+      },
     });
   });
 

@@ -1,6 +1,17 @@
 "use client";
 
-import { createContext, forwardRef, ReactNode, useCallback, useContext, useEffect, useImperativeHandle, useRef, useState } from "react";
+import {
+  createContext,
+  forwardRef,
+  memo,
+  ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
 import { calculatePosition } from "../../lib/calculate-position";
 import { parsePathToVertices } from "../../lib/svg-path-to-vertices";
 import { debounce } from "lodash";
@@ -456,4 +467,4 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
 );
 
 Gravity.displayName = "Gravity";
-export default Gravity;
+export default memo(Gravity);

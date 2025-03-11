@@ -2,75 +2,73 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, CameraShake, CameraControls, ScrollControls, Scroll, useScroll } from "@react-three/drei";
 import Particles from "../Particles/Particles";
-import { useEffect, useLayoutEffect, useRef, useMemo, useCallback, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useMemo, useCallback, useState, memo } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function WebGLSphere() {
   return (
-    <Canvas linear={true} camera={{ position: [0, 0, 6], fov: 26 }}>
-      <WebGLSphereMain />
+    <Canvas onLoadedData={console.log("loaded")} linear={true} camera={{ position: [0, 0, 6], fov: 26 }}>
+      <SphereMain />
     </Canvas>
   );
 }
 
 function WebGLSphereMain() {
-  const propsProd = useMemo(
-    () => ({
-      focus: 5.7,
-      speed: 35,
-      aperture: 9.3,
-      fov: 190,
-      curl: 0.19,
-      size: 512,
-    }),
-    []
-  );
-
-  const controlsHook = useThree((state) => state.camera);
-  const controls = useRef();
-  const [zRef, setZRef] = useState({
-    z: 6.1,
-    y: 0,
-    zEnd: 7.1,
+  const [propsProd, setPropsProd] = useState({
+    focus: 5.7,
+    speed: 35,
+    aperture: 9.3,
+    fov: 190,
+    curl: 0.19,
+    size: 512,
   });
+
+  // const controlsHook = useThree((state) => state.camera);
+  const controls = useRef();
+  // const [zRef, setZRef] = useState({
+  //   z: 6.1,
+  //   y: 0,
+  //   zEnd: 7.1,
+  // });
   const particleSize = useCallback((e) => {
-    if (e.target.innerWidth < 600) {
-      setZRef((prev) => ({ ...prev, z: 10, zEnd: 11 }));
-    }
+    // if (e.target.innerWidth < 600) {
+    //   setZRef((prev) => ({ ...prev, z: 9, zEnd: 10 }));
+    //   propsProd.size = 300;
+    // }
+    console.log("dkkdk");
+
+    setPropsProd((prev) => ({ ...prev, x: 100 }));
   }, []);
 
   useEffect(() => {
-    if (window.innerWidth < 600) {
-      setZRef((prev) => ({ ...prev, z: 10, zEnd: 11 }));
-    }
-  }, []);
-  useEffect(() => {
+    particleSize();
+
     window.addEventListener("resize", particleSize);
     return () => window.removeEventListener("resize", particleSize);
-  }, [particleSize]);
+  }, []);
 
-  useFrame(() => {
-    controlsHook.position.set(0, zRef.y, zRef.z);
-  });
+  // useFrame(() => {
+  //   controlsHook.position.set(0, zRef.y, zRef.z);
+  // });
 
-  useGSAP(
-    () => {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.to(zRef, {
-        z: zRef.zEnd,
-        ease: "power4.inOut",
-        scrollTrigger: {
-          trigger: ".topsection",
-          start: "5% top",
-          end: "30% top",
-          scrub: true,
-        },
-      });
-    },
-    { dependencies: [zRef] }
-  );
+  // useGSAP(
+  //   () => {
+  //     gsap.registerPlugin(ScrollTrigger);
+  //     gsap.to(zRef, {
+  //       z: zRef.zEnd,
+  //       ease: "power4.inOut",
+  //       scrollTrigger: {
+  //         trigger: ".topsection",
+  //         start: "5% top",
+  //         end: "30% top",
+  //         scrub: true,
+  //       },
+  //     });
+  //   },
+  //   { dependencies: [zRef] }
+  // );
 
   return (
     <>
@@ -89,3 +87,5 @@ function WebGLSphereMain() {
     </>
   );
 }
+
+const SphereMain = memo(WebGLSphereMain);
