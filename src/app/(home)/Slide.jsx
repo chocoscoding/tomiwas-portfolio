@@ -34,7 +34,7 @@ const Slide = () => {
       xPercent: -10,
       scrollTrigger: {
         ...scrollTigger1,
-        scrub: 700, // Increase the scrub value to slow down the animation
+        scrub: 600, // Increase the scrub value to slow down the animation
       },
     });
   });

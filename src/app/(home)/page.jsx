@@ -37,10 +37,21 @@ const Home = () => {
         onComplete: () => setShowPreloader(false),
       });
 
+      tl.to(".progress-bar", {
+        scaleX: 1,
+        duration: 1.5,
+        ease: "ease.in",
+      });
+      tl.to(".progress-bar", {
+        xPercent: 100,
+        duration: 2,
+        ease: "ease.in",
+        delay: 0.5,
+      });
       tl.to(".miniLogo p", {
-        stagger: 0.125,
+        stagger: 0.1,
         y: 0,
-        duration: 1.1,
+        duration: 0.95,
         ease: "ease.in",
       });
       tl.to(".miniLogo p", {
@@ -65,6 +76,7 @@ const Home = () => {
       {showPreloader && (
         <div className="pre-loader" ref={preloaderRef}>
           <div className="main">
+            <div className="progress-bar"></div>
             <div className="miniLogo">
               <p>S</p>
               <p>A</p>

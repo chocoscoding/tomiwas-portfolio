@@ -23,7 +23,7 @@ const TopSection = ({ showPreloader }) => {
       gsap.registerPlugin(ScrollTrigger, CustomEase);
       CustomEase.create("hop", "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1");
       const tlMain = gsap.timeline({
-        delay: showPreloader ? "3.2" : "0.25",
+        delay: showPreloader ? "6.7" : "0.25",
       });
 
       tlMain.to([".hero-title .line h1"], {
