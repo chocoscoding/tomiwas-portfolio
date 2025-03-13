@@ -18,12 +18,9 @@ const Page = () => {
   const nextProjectRef = useRef(null);
   const nextProjectTitleRef = useRef(null);
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, SplitText);
-  });
-
   useGSAP(
     () => {
+      gsap.registerPlugin(ScrollTrigger, SplitText);
       const tl = gsap.timeline();
 
       tl.fromTo(titleRef.current, { y: 100 }, { y: 0, duration: 1.5, ease: "power4.out" });
