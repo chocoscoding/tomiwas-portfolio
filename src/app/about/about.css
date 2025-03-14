@@ -29,7 +29,8 @@
   margin-bottom: 1em;
 }
 
-.about-copy-wrapper h3 {
+.about-copy-wrapper h3,
+.about-copy-wrapper p {
   margin-bottom: 0.5em;
 }
 
@@ -102,7 +103,15 @@
   font-size: 18px;
 }
 
+.about-copy p {
+  color: var(--text);
+  font-size: 1.9rem;
+}
 @media (max-width: 900px) {
+  .about-copy p {
+    color: var(--text);
+    font-size: 1.6rem;
+  }
   .about-intro {
     width: 100%;
     flex-direction: column;
@@ -129,4 +138,9 @@
 
 .aboutLine2 {
   visibility: hidden;
+}
+
+.container-padding {
+  padding-left: 2%;
+  padding-right: 2%;
 }

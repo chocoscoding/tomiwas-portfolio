@@ -1,10 +1,12 @@
 import React from "react";
 import Button from "./Main/Button";
 import FooterWithParticle from "./blocks/Backgrounds/Particles2/Particles2";
-const Footer = () => {
+import { getContactInfo } from "../sanity/lib/query";
+const Footer = async () => {
+  const contactInfo = await getContactInfo();
   return (
     <FooterWithParticle
-      particleColors={["#221a1a"]}
+      particleColors={["#0f0f0f"]}
       particleCount={500}
       particleSpread={15}
       speed={0.1}
@@ -20,16 +22,16 @@ const Footer = () => {
           <p className="normal">{`Let's build something awesome like never before`}</p>
           <ul>
             <li>
-              <Button href="mailto:solarinthomz.st@gmail.com">Mail: solarinthomz.st@gmail.com</Button>
+              <Button href={`mailto:${contactInfo.mail}`}>{`Mail: ${contactInfo.mail}`}</Button>
             </li>
             <li>
-              <Button href="https://www.linkedin.com">LinkedIn</Button>
+              <Button href={contactInfo.linkedin}>LinkedIn</Button>
             </li>
             <li>
-              <Button href="https://www.instagram.com">Instagram</Button>
+              <Button href={contactInfo.instagram}>Instagram</Button>
             </li>
             <li>
-              <Button href="https://www.twitter.com">X/Twitter</Button>
+              <Button href={contactInfo.x}>X/Twitter</Button>
             </li>
           </ul>
         </div>

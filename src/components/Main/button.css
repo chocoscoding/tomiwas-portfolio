@@ -7,7 +7,7 @@ button {
   background: 0 0;
   border: none;
   border-radius: 6.25rem;
-  color: black;
+  color: var(--bg);
   cursor: pointer;
   display: inline-flex;
   font-size: 1.2rem;
@@ -40,7 +40,7 @@ button {
 }
 
 .button--stroke:after {
-  border: 0.125rem solid black;
+  border: 0.125rem solid var(--bg);
   border-radius: 6.25rem;
   content: "";
   pointer-events: none;
@@ -72,7 +72,7 @@ button {
 
 .button__flair:before {
   aspect-ratio: 1/1;
-  background-color: black;
+  background-color: var(--bg);
   border-radius: 50%;
   content: "";
   display: block;
@@ -90,7 +90,7 @@ button {
   }
   @media (hover: hover) {
     .button.button--stroke:hover {
-      background-color: black;
+      background-color: var(--bg);
     }
   }
 }

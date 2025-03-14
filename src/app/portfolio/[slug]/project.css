@@ -1,0 +1,161 @@
+.project-page-title,
+.next-project-title {
+  width: 50%;
+  margin: 1em auto;
+  text-align: center;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.next-project-title {
+  margin: 1em auto 12em auto;
+}
+
+.project-page-title h1 {
+  position: relative;
+  transform: translateY(64px);
+  will-change: transform;
+  font-family: "ImpostureGrotesk";
+}
+
+.project-date {
+  text-align: center;
+  margin: 0;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.project-url {
+  margin-top: 1em;
+  margin-bottom: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.next-project {
+  text-align: center;
+  margin: 6em 0 0 0;
+}
+
+.project-date p {
+  position: relative;
+  transform: translateY(24px);
+  will-change: transform;
+}
+
+.project-page .img {
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+}
+
+.project-content {
+  width: 85%;
+  margin: 4em auto;
+}
+
+.project-content .img {
+  width: 100%;
+  height: 600px;
+  margin: 2em 0 4em 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.project-page .copy {
+  width: 100%;
+  margin: 4em 0;
+}
+.project-page .copy .line h3,
+.project-page .copy .line h4,
+.project-page .copy .line p,
+.project-page .copy .line blockquote {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.project-page .copy h3,
+.project-page .copy h4,
+.project-page .copy ul,
+.project-page .copy p,
+.project-page .copy blockquote {
+  color: var(--text);
+}
+
+.project-page .copy h3 {
+  font-size: 2.5rem;
+}
+
+.project-page .copy h4,
+.project-page .copy blockquote {
+  font-size: 2rem;
+}
+
+.project-page .copy ul,
+.project-page .copy p {
+  font-size: 1.9rem;
+}
+.project-page .copy blockquote::before {
+  content: open-quote;
+  font-size: 1.5rem;
+  margin-right: 0.25em;
+}
+
+.project-page .copy blockquote::after {
+  content: close-quote;
+  font-size: 1.5rem;
+  margin-left: 0.25em;
+}
+@media (max-width: 900px) {
+  .project-page .copy h3 {
+    font-size: 1.9rem;
+  }
+
+  .project-page .copy h4,
+  .project-page .copy blockquote {
+    font-size: 1.8rem;
+  }
+
+  .project-page .copy ul,
+  .project-page .copy p {
+    font-size: 1.4rem;
+  }
+
+  .project-page .copy blockquote::before,
+  .project-page .copy blockquote::after {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-page .copy h3 {
+    font-size: 1.8rem;
+  }
+
+  .project-page .copy h4,
+  .project-page .copy blockquote {
+    font-size: 1.6rem;
+  }
+
+  .project-page .copy ul,
+  .project-page .copy p {
+    font-size: 1.2rem;
+  }
+
+  .project-page .copy blockquote::before,
+  .project-page .copy blockquote::after {
+    font-size: 1.8rem;
+  }
+}
+.project-page .copy blockquote {
+  color: #fff9e3;
+  margin-bottom: 0.25em;
+  margin-top: 0.25em;
+  font-style: italic;
+}
+@media (max-width: 900px) {
+  .project-content {
+    width: 100%;
+  }
+
+  .project-page-title,
+  .next-project-title {
+    width: 100%;
+  }
+}

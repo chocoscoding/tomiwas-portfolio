@@ -297,3 +297,16 @@ w-full {
   z-index: 1;
   animation: none !important;
 }
+
+.emptyPage {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.emptyPage p {
+  font-size: 3rem;
+  color: var(--text);
+}

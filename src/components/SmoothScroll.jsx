@@ -9,7 +9,7 @@ function SmoothScrolling({ children }) {
         smoothTouch: true,
         lerp: 0.03,
         smoothWheel: true,
-        overscroll: false,
+        // overscroll: false,
         gestureDirection: "vertical",
         smooth: true,
         touchMultiplier: 2,

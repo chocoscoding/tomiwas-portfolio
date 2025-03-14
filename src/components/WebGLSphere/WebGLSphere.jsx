@@ -9,7 +9,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function WebGLSphere() {
   return (
-    <Canvas onLoadedData={console.log("loaded")} linear={true} camera={{ position: [0, 0, 6], fov: 26 }}>
+    <Canvas
+      //  fallback={}
+      linear={true}
+      camera={{ position: [0, 0, 6], fov: 26 }}>
       <SphereMain />
     </Canvas>
   );
@@ -37,7 +40,6 @@ function WebGLSphereMain() {
     //   setZRef((prev) => ({ ...prev, z: 9, zEnd: 10 }));
     //   propsProd.size = 300;
     // }
-    console.log("dkkdk");
 
     setPropsProd((prev) => ({ ...prev, x: 100 }));
   }, []);

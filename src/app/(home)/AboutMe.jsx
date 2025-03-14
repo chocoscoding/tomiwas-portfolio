@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 
@@ -12,12 +11,9 @@ const AboutMe = () => {
   const wrapperRef = useRef(null);
   const pTagRef = useRef(null);
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, SplitText);
-  }, []);
-
   useGSAP(
     () => {
+      gsap.registerPlugin(ScrollTrigger, SplitText);
       var split = new SplitText(pTagRef.current, { type: "lines", linesClass: "aboutLine" });
       var split2 = new SplitText(".aboutLine", { type: "lines", linesClass: "aboutLine2" });
       gsap.fromTo(
@@ -43,7 +39,7 @@ const AboutMe = () => {
       gsap.to(".aboutme", {
         scale: 0.9,
         scrollTrigger: {
-          trigger: ".aboutWrapper",
+          trigger: wrapperRef.current,
           start: "center bottom",
           scrub: true,
         },
