@@ -1,6 +1,7 @@
 "use client";
 import { memo, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const anim = {
   initial: { width: 0 },
@@ -9,11 +10,12 @@ const anim = {
 };
 const ServiceCard = (props) => {
   const imageContainerRef = useRef(null);
-  const { title1, title2, image } = props;
+  const { title, title2, image, slug } = props;
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <div
+    <Link
+      href={`/portfolio/${slug}`}
       onMouseEnter={() => {
         setIsActive(true);
       }}
@@ -21,14 +23,14 @@ const ServiceCard = (props) => {
         setIsActive(false);
       }}
       className="projects_card">
-      <p>{title1}</p>
+      <p>{title}</p>
 
       <motion.div variants={anim} animate={isActive ? "open" : "closed"} className="imgContainer" ref={imageContainerRef}>
-        <img src={image} alt={title1} />
+        <img src={image} loading="eager" alt={title} />
       </motion.div>
 
       <p>{title2}</p>
-    </div>
+    </Link>
   );
 };
 export default memo(ServiceCard);

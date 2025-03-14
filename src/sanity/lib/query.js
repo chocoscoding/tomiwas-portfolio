@@ -64,8 +64,9 @@ export const getProjectBySlug = async (slug) => {
 export const getFeaturedProjects = async () => {
   return await client.fetch(
     `*[_type == "projects" && featured == true]{
-      ...,
-      "mainImageUrl": mainImage.asset->url
+      title,
+      'slug': slug.current,
+      "image": mainImage.asset->url
     }`,
     {},
     { cache: "no-store" }
