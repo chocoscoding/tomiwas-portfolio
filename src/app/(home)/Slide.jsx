@@ -19,7 +19,7 @@ const Slide = () => {
       trigger: ".slides",
       start: "top bottom",
       end: "bottom top",
-      scrub: 5,
+      scrub: 2,
     };
 
     gsap.to("#phrase2", {
@@ -37,7 +37,7 @@ const Slide = () => {
       xPercent: -10,
       scrollTrigger: {
         ...scrollTigger1,
-        start: "top+=100px bottom",
+        start: "top+=50px bottom",
       },
     });
   });
