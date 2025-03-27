@@ -19,14 +19,14 @@ export default function WebGLSphere() {
 }
 
 function WebGLSphereMain() {
-  const [propsProd, setPropsProd] = useState({
+  const propsProd={
     focus: 5.7,
     speed: 35,
     aperture: 9.3,
     fov: 190,
     curl: 0.19,
     size: 512,
-  });
+  }
 
   // const controlsHook = useThree((state) => state.camera);
   const controls = useRef();
@@ -35,21 +35,21 @@ function WebGLSphereMain() {
   //   y: 0,
   //   zEnd: 7.1,
   // });
-  const particleSize = useCallback((e) => {
+  // const particleSize = useCallback((e) => {
     // if (e.target.innerWidth < 600) {
     //   setZRef((prev) => ({ ...prev, z: 9, zEnd: 10 }));
     //   propsProd.size = 300;
     // }
 
-    setPropsProd((prev) => ({ ...prev, x: 100 }));
-  }, []);
+  //   setPropsProd((prev) => ({ ...prev, x: 100 }));
+  // }, []);
 
-  useEffect(() => {
-    particleSize();
+  // useEffect(() => {
+  //   particleSize();
 
-    window.addEventListener("resize", particleSize);
-    return () => window.removeEventListener("resize", particleSize);
-  }, []);
+  //   window.addEventListener("resize", particleSize);
+  //   return () => window.removeEventListener("resize", particleSize);
+  // }, []);
 
   // useFrame(() => {
   //   controlsHook.position.set(0, zRef.y, zRef.z);

@@ -19,25 +19,27 @@ const Slide = () => {
       trigger: ".slides",
       start: "top bottom",
       end: "bottom top",
-      scrub: 2,
+      scrub: 3,
     };
 
     gsap.to("#phrase2", {
-      ease: "expo.in",
+      ease: "sine",
       x: 800,
       scrollTrigger: scrollTigger1,
     });
     gsap.to("#phrase1", {
-      ease: "expo.in",
+      ease: "sine",
       x: -1400,
       scrollTrigger: scrollTigger1,
     });
     gsap.to("#phrase3", {
-      ease: "expo.in",
+      ease: "sine",
       xPercent: -10,
       scrollTrigger: {
         ...scrollTigger1,
+        scrub: 5,
         start: "top+=50px bottom",
+        end: "bottom top+=100px",
       },
     });
   });
